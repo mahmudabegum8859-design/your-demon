@@ -11,7 +11,7 @@ ALPINE_VERSION="latest-stable"
 ALPINE_MIRROR="https://dl-cdn.alpinelinux.org/alpine"
 STAMP="$(date -u +%Y%m%d%H%M%S)"
 ROOTFS_DIR="/tmp/yourdemon-chroot-${ARCH}-${STAMP}"
-OUTPUT_DIR="$(dirname "$0")/output"
+OUTPUT_DIR="$(cd "$(dirname "$0")" && pwd)/output"
 TARBALL="core-${ARCH}.tar.gz"
 
 case "$ARCH" in
@@ -104,6 +104,14 @@ $APK --root "$ROOTFS_DIR" --arch "$ALPINE_ARCH" \
   --repository "$REPO_MAIN" \
   --repository "$REPO_COMMUNITY" \
   add --allow-untrusted --no-cache --no-scripts py3-requests py3-colorama
+
+# dnsmasq's post-install script normally creates its user/group, but the
+# --no-scripts cross-arch install skips it. Without this user dnsmasq refuses
+# to start with "unknown user or group: dnsmasq", breaking the evil twin AP.
+echo "Creating dnsmasq user/group..."
+echo 'dnsmasq:x:97:97:dnsmasq:/var/lib/dnsmasq:/bin/false' >> "$ROOTFS_DIR/etc/passwd"
+echo 'dnsmasq:x:97:' >> "$ROOTFS_DIR/etc/group"
+mkdir -p "$ROOTFS_DIR/var/lib/dnsmasq"
 
 # Clone opx-oneshot
 echo "Installing opx-oneshot..."
