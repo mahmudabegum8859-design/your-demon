@@ -69,6 +69,7 @@ public class CaptivePortalFragment extends Fragment {
                     statusText.setText(core.str("setting_up_interface"));
                     logText.append(core.str("setting_up_interface") + "\n");
                 });
+                exec("mkdir -p /storage/emulated/0/YourDemon/portal");
                 exec("ip link set " + ifaceFinal + " down");
                 exec("ip addr add 192.168.4.1/24 dev " + ifaceFinal);
                 exec("ip link set " + ifaceFinal + " up");
@@ -92,22 +93,22 @@ public class CaptivePortalFragment extends Fragment {
                     logText.append(core.str("starting_hostapd") + "\n");
                 });
                 String hostapdConf = "interface=" + ifaceFinal + "\ndriver=nl80211\nssid=" + ssidFinal + "\nhw_mode=g\nchannel=6\nwmm_enabled=0\nmacaddr_acl=0\nauth_algs=1\nignore_broadcast_ssid=0\n";
-                exec("echo '" + hostapdConf + "' > /data/local/YourDemon/hostapd.conf");
-                exec(core.EXECUTE + "hostapd /data/local/YourDemon/hostapd.conf -B");
+                exec("echo '" + hostapdConf + "' > /storage/emulated/0/YourDemon/portal/hostapd.conf");
+                exec(core.EXECUTE + "hostapd /sdcard/YourDemon/portal/hostapd.conf -B");
 
                 getActivity().runOnUiThread(() -> {
                     statusText.setText(core.str("starting_dns_dhcp"));
                     logText.append(core.str("starting_dns_dhcp") + "\n");
                 });
                 String dnsmasqConf = "interface=" + ifaceFinal + "\ndhcp-range=192.168.4.2,192.168.4.100,255.255.255.0,12h\ndhcp-option=3,192.168.4.1\ndhcp-option=6,192.168.4.1\naddress=/#/192.168.4.1\n";
-                exec("echo '" + dnsmasqConf + "' > /data/local/YourDemon/dnsmasq.conf");
-                exec(core.EXECUTE + "dnsmasq -C /data/local/YourDemon/dnsmasq.conf");
+                exec("echo '" + dnsmasqConf + "' > /storage/emulated/0/YourDemon/portal/dnsmasq.conf");
+                exec(core.EXECUTE + "dnsmasq -C /sdcard/YourDemon/portal/dnsmasq.conf");
 
                 getActivity().runOnUiThread(() -> {
                     statusText.setText(core.str("starting_web_server"));
                     logText.append(core.str("starting_web_server") + "\n");
                 });
-                exec(core.EXECUTE + "python3 -m http.server 80 --bind 192.168.4.1 &>/dev/null &");
+                exec(core.EXECUTE + "python3 -m http.server 80 --bind 192.168.4.1 --directory /sdcard/YourDemon/portal &>/dev/null &");
 
                 getActivity().runOnUiThread(() -> {
                     statusText.setText(core.str("portal_running"));

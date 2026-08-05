@@ -51,6 +51,7 @@ import com.opx.yourdemon.pmkid.PmkidCaptureFragment;
 import com.opx.yourdemon.mac_changer.MacChangerFragment;
 import com.opx.yourdemon.arp_scan.ArpScanFragment;
 import com.opx.yourdemon.captive_portal.CaptivePortalFragment;
+import com.opx.yourdemon.evil_twin.EvilTwinFragment;
 import com.opx.yourdemon.driver_check.DriverCheckFragment;
 import com.opx.yourdemon.wifi_info.WifiInfoFragment;
 import com.opx.yourdemon.wifi_password_history.WifiPasswordHistoryFragment;
@@ -212,39 +213,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         MaterialCardView wifi = findViewById(R.id.menu_wifi);
-        MaterialCardView localnetwork = findViewById(R.id.menu_localnetwork);
         MaterialCardView dashboard = findViewById(R.id.menu_dashboard);
-        MaterialCardView searchsploit = findViewById(R.id.menu_searchsploit);
-        MaterialCardView manager = findViewById(R.id.menu_manager);
-        MaterialCardView geo = findViewById(R.id.menu_geomac);
-        MaterialCardView metasploit = findViewById(R.id.menu_msf);
-        MaterialCardView three = findViewById(R.id.menu_three_wifi);
-        MaterialCardView scan = findViewById(R.id.menu_router);
-        MaterialCardView repo = findViewById(R.id.menu_repo);
-        MaterialCardView site = findViewById(R.id.menu_website);
-        MaterialCardView exploits = findViewById(R.id.menu_exloits);
-        MaterialCardView nmap = findViewById(R.id.menu_nmap);
-        MaterialCardView terminal = findViewById(R.id.menu_terminal);
-        MaterialCardView ifaceMgr = findViewById(R.id.menu_iface_mgr);
-        MaterialCardView cmdMgr = findViewById(R.id.menu_cmd_mgr);
-        MaterialCardView actions = findViewById(R.id.menu_actions);
-        MaterialCardView pmkid = findViewById(R.id.menu_pmkid);
-        MaterialCardView mac = findViewById(R.id.menu_mac);
-        MaterialCardView arp = findViewById(R.id.menu_arp);
         MaterialCardView portal = findViewById(R.id.menu_portal);
-        MaterialCardView driver = findViewById(R.id.menu_driver);
-        MaterialCardView wifiInfo = findViewById(R.id.menu_wifi_info);
-        MaterialCardView history = findViewById(R.id.menu_history);
-        MaterialCardView vnc = findViewById(R.id.menu_vnc);
-        MaterialCardView firewall = findViewById(R.id.menu_firewall);
-        MaterialCardView adapter = findViewById(R.id.menu_adapter);
-        MaterialCardView phones = findViewById(R.id.menu_phones);
-        MaterialCardView wpsIface = findViewById(R.id.menu_wps_iface);
-        MaterialCardView hydraCard = findViewById(R.id.menu_hydra);
-        MaterialCardView nucleiCard = findViewById(R.id.menu_nuclei);
-        MaterialCardView payloadCard = findViewById(R.id.menu_payload);
-        MaterialCardView webSploitCard = findViewById(R.id.menu_searchsploit_web);
-        MaterialCardView portalWebCard = findViewById(R.id.menu_portal_web);
+        MaterialCardView evilTwin = findViewById(R.id.menu_evil_twin);
         wifi.setOnClickListener(view -> {
             settings.setImageDrawable(getDrawable(R.drawable.settings));
             account.setImageDrawable(getDrawable(R.drawable.account));
@@ -257,213 +228,19 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().replace(R.id.flContent, new Dashboard()).commit();
             menu.collapse();
         });
-        localnetwork.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new LocalMain()).commit();
-            menu.collapse();
-        });
-        repo.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new ModulesFragment()).commit();
-            menu.collapse();
-        });
-        manager.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new CoreManager()).commit();
-            menu.collapse();
-        });
-        searchsploit.setOnClickListener(view -> {
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                fragmentManager.beginTransaction().replace(R.id.flContent, new SearchSploit()).commit();
-                menu.collapse();
-            });
-        geo.setOnClickListener(view -> {
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                fragmentManager.beginTransaction().replace(R.id.flContent, new GeoMac()).commit();
-                menu.collapse();
-            });
-            three.setOnClickListener(view -> {
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                fragmentManager.beginTransaction().replace(R.id.flContent, new LoginPage()).commit();
-                menu.collapse();
-            });
-            scan.setOnClickListener(view -> {
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                fragmentManager.beginTransaction().replace(R.id.flContent, new RouterScanMain()).commit();
-                menu.collapse();
-            });
-        metasploit.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new StillDeveloping()).commit();
-            menu.collapse();
-        });
-        site.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new StillDeveloping()).commit();
-            menu.collapse();
-        });
-        nmap.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new NmapScanner()).commit();
-            menu.collapse();
-        });
-        exploits.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new ExploitScreen()).commit();
-            menu.collapse();
-        });
-        terminal.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new StillDeveloping()).commit();
-            menu.collapse();
-        });
-
-        ifaceMgr.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new InterfaceManagerFragment()).commit();
-            menu.collapse();
-        });
-
-        cmdMgr.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new CommandsManagerFragment()).commit();
-            menu.collapse();
-        });
-
-        actions.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new ActionsFragment()).commit();
-            menu.collapse();
-        });
-
-        pmkid.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new PmkidCaptureFragment()).commit();
-            menu.collapse();
-        });
-
-        mac.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new MacChangerFragment()).commit();
-            menu.collapse();
-        });
-
-        arp.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new ArpScanFragment()).commit();
-            menu.collapse();
-        });
-
         portal.setOnClickListener(view -> {
             settings.setImageDrawable(getDrawable(R.drawable.settings));
             account.setImageDrawable(getDrawable(R.drawable.account));
             fragmentManager.beginTransaction().replace(R.id.flContent, new CaptivePortalFragment()).commit();
             menu.collapse();
         });
-
-        driver.setOnClickListener(view -> {
+        evilTwin.setOnClickListener(view -> {
             settings.setImageDrawable(getDrawable(R.drawable.settings));
             account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new DriverCheckFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.flContent, new EvilTwinFragment()).commit();
             menu.collapse();
         });
 
-        wifiInfo.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new WifiInfoFragment()).commit();
-            menu.collapse();
-        });
-
-        history.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new WifiPasswordHistoryFragment()).commit();
-            menu.collapse();
-        });
-
-        vnc.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new VncFragment()).commit();
-            menu.collapse();
-        });
-
-        firewall.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new FirewallDetectionFragment()).commit();
-            menu.collapse();
-        });
-
-        adapter.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new AdapterSuggesterFragment()).commit();
-            menu.collapse();
-        });
-
-        phones.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new PhoneDetectionFragment()).commit();
-            menu.collapse();
-        });
-
-        wpsIface.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new WpsInterfaceFragment()).commit();
-            menu.collapse();
-        });
-        hydraCard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new HydraFragment()).commit();
-            menu.collapse();
-        });
-        nucleiCard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new NucleiFragment()).commit();
-            menu.collapse();
-        });
-        payloadCard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new PayloadFragment()).commit();
-            menu.collapse();
-        });
-        webSploitCard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new WebSploitFragment()).commit();
-            menu.collapse();
-        });
-        portalWebCard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new PortalWebFragment()).commit();
-            menu.collapse();
-        });
 
 
     }
