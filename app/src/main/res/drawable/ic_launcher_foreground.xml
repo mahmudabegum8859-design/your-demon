@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Shield base -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,16L22,30v18c0,20.8 12.5,40.2 32,46c19.5,-5.8 32,-25.2 32,-46V30L54,16z"/>
+    <!-- D letterform -->
+    <path
+        android:fillColor="#6C2BD9"
+        android:pathData="M46,48h3v-8h5c4.4,0 8,3.6 8,8s-3.6,8 -8,8h-5v-8zM46,56h5c5.5,0 10,-4.5 10,-10s-4.5,-10 -10,-10h-8v28h3v-8z"/>
+</vector>

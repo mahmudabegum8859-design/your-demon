@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="8dp"
+        android:background="@drawable/rectangle"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="8dp"/>
+<com.airbnb.lottie.LottieAnimationView
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    android:layout_gravity="center"
+    app:lottie_autoPlay="true"
+    app:lottie_speed="0.4"
+    app:lottie_rawRes="@raw/wifi_dongle"
+    android:layout_marginTop="10dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:text="@string/usb"
+        android:textSize="22dp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usbinfo"
+            android:layout_gravity="center"
+            android:id="@+id/usb_info"
+            android:layout_margin="15dp"
+            android:gravity="center"
+
+            android:textIsSelectable="true"
+            android:textSize="16dp"/>
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableTint="@color/white"
+        android:text="Change scan interface"
+        android:backgroundTint="@color/blue2"
+        app:cornerRadius="5dp"
+        android:id="@+id/change_listen"/>
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:drawableTint="@color/white"
+    android:text="Change deauth interface"
+    android:backgroundTint="@color/blue2"
+    android:layout_marginBottom="10dp"
+    app:cornerRadius="5dp"
+    android:id="@+id/change_deauth"/>
+
+</LinearLayout>

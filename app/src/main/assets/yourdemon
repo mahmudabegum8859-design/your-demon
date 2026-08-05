@@ -1,0 +1,1 @@
+su -c "/data/data/com.opx.yourdemon/files/chroot_exec ash"

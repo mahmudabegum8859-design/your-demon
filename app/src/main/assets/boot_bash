@@ -1,0 +1,5 @@
+#!/system/bin/sh
+BUSYBOX=/data/data/com.opx.yourdemon/files/busybox
+MNT=/data/local/YourDemon/release/
+CHROOT_EXEC=/usr/bin/sudo
+$BUSYBOX chroot $MNT $CHROOT_EXEC -E PATH=$PATH ash

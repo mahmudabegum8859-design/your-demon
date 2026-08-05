@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Demon - WiFi Pentest & Evil Twin Toolkit for Android</title>
+
+<!-- SEO -->
+<meta name="description" content="Your Demon is an all-in-one offline WiFi penetration testing toolkit for Android. Evil Twin AP, Captive Portal, handshake capture, WPS Pixie Dust, airodump-ng, aircrack-ng, nmap, hydra and more — all inside a portable Alpine chroot. Download the APK and core file free from GitHub.">
+<meta name="keywords" content="your demon, wifi hacking tool android, evil twin apk, captive portal, aircrack-ng android, pixie dust wps, wpa2 handshake capture, nmap android, hydra android, wifi pentest toolkit, wifi auditor apk">
+<meta name="author" content="Your Demon">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://your-demon.netlify.app/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://your-demon.netlify.app/">
+<meta property="og:title" content="Your Demon - WiFi Pentest & Evil Twin Toolkit for Android">
+<meta property="og:description" content="Evil Twin AP, Captive Portal, handshake capture, WPS attacks, nmap, hydra — a complete offline WiFi auditing toolkit that runs inside a portable Alpine chroot on Android.">
+<meta property="og:site_name" content="Your Demon">
+<meta property="og:image" content="https://your-demon.netlify.app/og-cover.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Demon - WiFi Pentest & Evil Twin Toolkit for Android">
+<meta name="twitter:description" content="Complete offline WiFi auditing toolkit for Android: Evil Twin AP, Captive Portal, handshake capture, WPS Pixie Dust, nmap, hydra.">
+<meta name="twitter:image" content="https://your-demon.netlify.app/og-cover.png">
+
+<!-- Theme -->
+<meta name="theme-color" content="#05070f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%94%AA%3C/text%3E%3C/svg%3E">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Your Demon",
+  "operatingSystem": "Android (aarch64)",
+  "applicationCategory": "SecurityApplication",
+  "description": "Offline WiFi pentesting toolkit for Android with Evil Twin AP, Captive Portal, handshake capture, WPS attacks, nmap and hydra inside a portable Alpine chroot.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
+}
+</script>
+
+<style>
+:root{
+  --bg:#05070f; --bg2:#0a0f22; --card:#0d1330; --card2:#111a3d;
+  --line:rgba(255,255,255,.08); --txt:#e6ecff; --mut:#8fa0c9;
+  --cy:#00e5ff; --vio:#8b5cf6; --grn:#22ff88; --red:#ff3b6b; --amb:#ffb020;
+  --grad:linear-gradient(135deg,#00e5ff,#8b5cf6 55%,#ff3b6b);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;line-height:1.6}
+::selection{background:rgba(0,229,255,.3)}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92%);margin-inline:auto}
+.hidden{opacity:0}
+
+/* ---------- ambient background ---------- */
+#bg-canvas{position:fixed;inset:0;z-index:-2;background:radial-gradient(1200px 700px at 80% -10%,rgba(139,92,246,.18),transparent 60%),radial-gradient(900px 600px at -10% 30%,rgba(0,229,255,.12),transparent 55%),var(--bg)}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);z-index:-1;opacity:.35;pointer-events:none;animation:blobmove 18s ease-in-out infinite}
+.blob.a{width:420px;height:420px;background:#00e5ff;top:-120px;left:-120px}
+.blob.b{width:520px;height:520px;background:#8b5cf6;bottom:-160px;right:-120px;animation-delay:-6s}
+.blob.c{width:300px;height:300px;background:#ff3b6b;top:40%;left:55%;animation-delay:-11s}
+@keyframes blobmove{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,40px) scale(1.15)}66%{transform:translate(-40px,-30px) scale(.9)}}
+.grid-overlay{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(5,7,15,.72);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:1px;font-size:19px}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--grad);display:grid;place-items:center;box-shadow:0 0 22px rgba(0,229,255,.5)}
+.logo .mark svg{width:20px;height:20px}
+.logo span em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--mut);font-size:15px;font-weight:500;transition:.25s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.nav-cta{background:var(--grad);border:0;color:#fff;font-weight:700;padding:9px 18px;border-radius:9px;cursor:pointer;font-size:14px;transition:.25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(139,92,246,.5)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:150px 0 90px;min-height:100vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid rgba(34,255,136,.35);border-radius:999px;color:var(--grn);font-size:13px;font-weight:600;background:rgba(34,255,136,.07);margin-bottom:22px;animation:fadeUp .8s .1s both}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--grn);box-shadow:0 0 10px var(--grn);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-family:'Orbitron',sans-serif;font-weight:900;font-size:clamp(34px,5.6vw,64px);line-height:1.08;letter-spacing:.5px}
+.hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradshift 6s ease infinite}
+@keyframes gradshift{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(40deg)}}
+.type-line{font-family:'JetBrains Mono',monospace;font-size:clamp(15px,2vw,20px);color:var(--cy);margin:18px 0 8px;min-height:30px}
+.type-line .cursor{display:inline-block;width:10px;background:var(--cy);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-sub{color:var(--mut);max-width:540px;font-size:16px;margin-bottom:30px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:12px;font-weight:700;font-size:15px;transition:.3s;cursor:pointer;border:0}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 34px rgba(0,229,255,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(139,92,246,.5)}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--cy);color:var(--cy);transform:translateY(-3px)}
+.btn svg{width:18px;height:18px}
+.hero-meta{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+.hero-meta .hm{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--mut)}
+.hero-meta .hm b{color:var(--grn);font-size:17px;display:block;font-family:'Orbitron',sans-serif}
+
+/* hero terminal card */
+.terminal{background:rgba(10,15,34,.85);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:fadeUp 1s .35s both}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+.term-bar i{width:12px;height:12px;border-radius:50%}
+.term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut)}
+.term-body{padding:20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;min-height:300px;position:relative}
+.term-body .tline{white-space:pre-wrap;opacity:0;transform:translateY(4px);animation:tIn .5s forwards}
+.t-p{color:var(--grn)}.t-c{color:var(--cy)}.t-w{color:var(--amb)}.t-m{color:var(--mut)}.t-r{color:var(--red)}.t-v{color:var(--vio)}
+@keyframes tIn{to{opacity:1;transform:none}}
+.fadeUp{animation:fadeUp .8s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--mut);font-size:12px;letter-spacing:2px}
+.scroll-hint .mouse{width:22px;height:34px;border:2px solid var(--mut);border-radius:12px;position:relative}
+.scroll-hint .mouse::after{content:"";position:absolute;top:6px;left:50%;width:4px;height:8px;margin-left:-2px;background:var(--cy);border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
+
+/* ---------- section base ---------- */
+section{padding:96px 0;position:relative}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 56px}
+.sec-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;color:var(--cy);border:1px solid rgba(0,229,255,.3);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.sec-title{font-family:'Orbitron',sans-serif;font-size:clamp(26px,3.6vw,40px);font-weight:800;margin-bottom:14px}
+.sec-sub{color:var(--mut)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center;transition:.3s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.4);box-shadow:0 18px 40px rgba(0,229,255,.08)}
+.stat .num{font-family:'Orbitron',sans-serif;font-size:38px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{color:var(--mut);font-size:13px;margin-top:6px}
+
+/* ---------- features ---------- */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.35s;position:relative;overflow:hidden}
+.feat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:.4s}
+.feat:hover::before{transform:scaleX(1)}
+.feat:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.4);box-shadow:0 24px 50px rgba(0,0,0,.4)}
+.feat .ico{width:52px;height:52px;border-radius:13px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);display:grid;place-items:center;margin-bottom:18px}
+.feat .ico svg{width:26px;height:26px;stroke:var(--cy)}
+.feat h3{font-size:18px;margin-bottom:8px}
+.feat p{color:var(--mut);font-size:14px}
+.feat .tagline{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grn);background:rgba(34,255,136,.08);padding:4px 10px;border-radius:6px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- how it works ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;position:relative;transition:.3s}
+.step:hover{transform:translateY(-6px)}
+.step::before{counter-increment:step;content:"0" counter(step);position:absolute;top:18px;right:20px;font-family:'Orbitron',sans-serif;font-size:30px;font-weight:900;color:rgba(255,255,255,.06)}
+.step .ico{width:44px;height:44px;border-radius:11px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);display:grid;place-items:center;margin-bottom:16px}
+.step .ico svg{width:22px;height:22px;stroke:var(--vio)}
+.step h3{font-size:16px;margin-bottom:6px}
+.step p{color:var(--mut);font-size:13.5px}
+.step .cmd{display:block;margin-top:14px;background:#070b1c;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cy)}
+
+/* ---------- downloads ---------- */
+.dl-wrap{max-width:860px;margin:0 auto}
+.ver-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:34px;flex-wrap:wrap}
+.ver-tab{padding:11px 24px;border-radius:11px;background:var(--card);border:1px solid var(--line);cursor:pointer;font-weight:600;font-size:14px;transition:.25s;color:var(--mut)}
+.ver-tab.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 26px rgba(139,92,246,.4)}
+.ver-tab .tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--grn);display:block}
+.dl-card{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dl-item{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;transition:.35s;position:relative;overflow:hidden}
+.dl-item:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.45);box-shadow:0 22px 48px rgba(0,229,255,.1)}
+.dl-item .badge{position:absolute;top:16px;right:16px;font-family:'JetBrains Mono',monospace;font-size:10px;padding:4px 9px;border-radius:6px}
+.b-rec{background:rgba(34,255,136,.12);color:var(--grn)}
+.b-dev{background:rgba(255,176,32,.12);color:var(--amb)}
+.b-core{background:rgba(139,92,246,.14);color:var(--vio)}
+.dl-item .file{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cy);margin-bottom:6px;word-break:break-all}
+.dl-item h3{font-size:17px;margin-bottom:6px}
+.dl-item p{color:var(--mut);font-size:13px;flex:1}
+.dl-item .meta{display:flex;gap:12px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut)}
+.dl-item .meta span b{color:var(--txt)}
+.dl-item .down{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--grad);color:#fff;font-weight:700;padding:12px;border-radius:10px;transition:.25s}
+.dl-item .down:hover{box-shadow:0 10px 28px rgba(139,92,246,.45);transform:translateY(-2px)}
+.dl-item .down svg{width:16px;height:16px}
+.dl-note{text-align:center;margin-top:22px;color:var(--mut);font-size:13px}
+.dl-note a{color:var(--cy);text-decoration:underline}
+.release-notes{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.release-notes h4{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--grn);margin-bottom:10px}
+.release-notes ul{padding-left:18px;color:var(--mut);font-size:14px}
+.release-notes li{margin:5px 0}
+
+/* ---------- compat ---------- */
+.compat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.comp{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start}
+.comp .ico{width:42px;height:42px;border-radius:10px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);display:grid;place-items:center;flex-shrink:0}
+.comp .ico svg{width:20px;height:20px;stroke:var(--cy)}
+.comp h4{font-size:15px;margin-bottom:4px}
+.comp p{color:var(--mut);font-size:13px}
+
+/* ---------- faq ---------- */
+.faq{max-width:760px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:0;color:var(--txt);font-weight:600;font-size:15px;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-q .arr{color:var(--cy);transition:.3s;flex-shrink:0;font-size:20px}
+.faq-item.open .arr{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 22px 20px;color:var(--mut);font-size:14px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:44px 0 34px;background:rgba(5,7,15,.6)}
+.foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand .logo{font-size:17px;margin-bottom:8px}
+.foot-brand p{color:var(--mut);font-size:13px;max-width:320px}
+.foot-links{display:flex;gap:40px;flex-wrap:wrap}
+.foot-links .col h5{font-size:13px;color:#fff;margin-bottom:12px;letter-spacing:1px}
+.foot-links .col a{display:block;color:var(--mut);font-size:13px;margin-bottom:8px;transition:.2s}
+.foot-links .col a:hover{color:var(--cy)}
+.foot-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--mut);font-size:12px}
+.foot-bottom .legal{font-family:'JetBrains Mono',monospace}
+.warn{display:flex;gap:12px;align-items:flex-start;background:rgba(255,176,32,.06);border:1px solid rgba(255,176,32,.25);border-radius:12px;padding:14px 16px;color:var(--amb);font-size:13px;margin-top:24px}
+
+/* toast */
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--card2);border:1px solid rgba(0,229,255,.4);color:var(--txt);padding:13px 22px;border-radius:12px;font-size:14px;z-index:200;transition:.4s;opacity:0;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+#toast.show{transform:translate(-50%,0);opacity:1}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero{padding-top:120px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .compat{grid-template-columns:1fr}
+  .dl-card{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .nav-links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:rgba(5,7,15,.97);padding:26px;gap:20px;transform:translateY(-130%);transition:.35s;border-bottom:1px solid var(--line)}
+  .nav-links.open{transform:none}
+  .burger{display:flex}
+  .feat-grid,.steps{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .term-body{min-height:270px;font-size:11.5px}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+<div class="grid-overlay"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-in">
+    <a href="#" class="logo">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+      </span>
+      <span>YOUR <em>DEMON</em></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#download">Download</a>
+      <a href="#compat">Requirements</a>
+      <a href="#faq">FAQ</a>
+      <button class="nav-cta" onclick="goDownload()">Get App</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge"><span class="dot"></span> v1.1 — EVIL TWIN + CAPTIVE PORTAL READY</span>
+      <h1>OFFLINE WIFI <span class="hl">PENTEST</span> TOOLKIT<br>FOR ANDROID</h1>
+      <div class="type-line" id="typeLine"><span id="typeText"></span><span class="cursor"></span></div>
+      <p class="hero-sub">Your Demon packs a full penetration-testing suite — Evil Twin rogue AP, Captive Portal, handshake capture, WPS Pixie Dust, airodump-ng, aircrack-ng, nmap, hydra and more — into a portable Alpine Linux chroot that runs entirely offline on your phone.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.1/app-release.apk" onclick="track(this,'APK v1.1')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+          Download APK (8.6 MB)
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/mahmudabegum8859-design/your-demon/releases" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 015.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm"><b id="c1">0</b>DOWNLOADS</div>
+        <div class="hm"><b id="c2">0</b>MODULES</div>
+        <div class="hm"><b id="c3">0</b>ATTACK TOOLS</div>
+        <div class="hm"><b>100%</b>OFFLINE</div>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="term-bar"><i></i><i></i><i></i><span>root@demon:~# evil_twin.sh</span></div>
+      <div class="term-body" id="termBody">
+        <div class="tline"><span class="t-p">root@demon</span>:<span class="t-c">~</span># <span class="t-w">airodump-ng wlan0mon</span></div>
+        <div class="tline"><span class="t-m"> BSSID              CH  ENC   AUTH   PWR   ESSID</span></div>
+        <div class="tline"><span class="t-v"> AA:BB:CC:DD:EE:01</span>  6  WPA2  PSK    -58   <span class="t-w">Free-WiFi</span></div>
+        <div class="tline"><span class="t-v"> AA:BB:CC:DD:EE:02</span>  1  WPA2  PSK    -63   <span class="t-w">CafeNet</span></div>
+        <div class="tline"><span class="t-p">root@demon</span>:<span class="t-c">~</span># <span class="t-w">hostapd hostapd.conf &</span></div>
+        <div class="tline"><span class="t-m">  [+] Rogue AP: <span class="t-w">Free-WiFi</span> (clone) started</span></div>
+        <div class="tline"><span class="t-p">root@demon</span>:<span class="t-c">~</span># <span class="t-w">dnsmasq -C dnsmasq.conf</span></div>
+        <div class="tline"><span class="t-m">  [+] DHCP 192.168.4.2-100 | DNS wildcard → 192.168.4.1</span></div>
+        <div class="tline"><span class="t-p">root@demon</span>:<span class="t-c">~</span># <span class="t-w">python3 capture_server.py</span></div>
+        <div class="tline"><span class="t-m">  [*] Captive portal online on :80</span></div>
+        <div class="tline"><span class="t-m">  [*] Victim connected → submits password…</span></div>
+        <div class="tline"><span class="t-r">  [+] CRED SAVED</span> <span class="t-m">→ /sdcard/YourDemon/captured/creds.txt</span></div>
+        <div class="tline"><span class="t-grn t-grn" style="color:var(--grn)">  ████████████████ 100% complete</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="mouse"></div><span>SCROLL</span></div>
+</header>
+
+<!-- STATS -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="num">2+</div><div class="lbl">RELEASES ON GITHUB</div></div>
+      <div class="stat"><div class="num">15+</div><div class="lbl">PENTEST TOOLS BUILT-IN</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">PORTABLE ALPINE CHROOT</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl">INTERNET REQUIRED</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">// CAPABILITIES</span>
+      <h2 class="sec-title">Everything a Security Tester Needs</h2>
+      <p class="sec-sub">One app, one chroot — every tool works offline with zero configuration.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 9l5 3 5-6 6 4 6-5"/><path d="M1 9v9a2 2 0 002 2h18a2 2 0 002-2V9"/></svg></div>
+        <h3>Evil Twin AP</h3>
+        <p>Clone any network's SSID &amp; BSSID into a rogue access point with hostapd. Channel, interface and optional automatic deauth all configurable in-app.</p>
+        <span class="tagline">HOSTAPD + AIREPLAY-NG</span>
+      </div>
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M8 12l2.5 2.5L16 9"/></svg></div>
+        <h3>Captive Portal</h3>
+        <p>Branded Wi-Fi login page served on port 80. Any password submitted by a victim is instantly saved with a timestamp to your phone.</p>
+        <span class="tagline">PYTHON HTTP SERVER</span>
+      </div>
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Handshake Capture</h3>
+        <p>airodump-ng captures WPA/WPA2 4-way handshakes straight to /sdcard, ready for aircrack-ng or cowpatty offline cracking.</p>
+        <span class="tagline">AIRODUMP-NG + AIRCRACK-NG</span>
+      </div>
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>WPS Pixie Dust</h3>
+        <p>Offline WPS PIN recovery with pixiewps and the oneshot suite — brute-force and pixie-dust attacks against WPS-enabled routers.</p>
+        <span class="tagline">PIXIEWPS + ONESHOT</span>
+      </div>
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Network Recon Suite</h3>
+        <p>nmap 7.99, hydra 9.6, curl, wget and a full Alpine userspace for scanning, service enumeration and credential testing.</p>
+        <span class="tagline">NMAP + HYDRA</span>
+      </div>
+      <div class="feat reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg></div>
+        <h3>Terminal Access</h3>
+        <p>Full root shell inside the chroot via sudo. Every Linux tool you'd expect is there — bash, python3, git, iproute2 and more.</p>
+        <span class="tagline">FULL ALPINE USERS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background:linear-gradient(180deg,transparent,rgba(139,92,246,.04),transparent)">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">// SETUP</span>
+      <h2 class="sec-title">From Download to Attack in 4 Steps</h2>
+      <p class="sec-sub">No root flashing, no PC required — the entire toolkit is a single portable chroot you select from your storage.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h3>Install APK</h3>
+        <p>Download the APK below, allow "install unknown apps" and install Your Demon on any aarch64 Android device.</p>
+        <code class="cmd">adb install app-release.apk</code>
+      </div>
+      <div class="step reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
+        <h3>Download Core</h3>
+        <p>Grab the core-aarch64.tar.gz chroot and place it on your device storage — one file, everything included.</p>
+        <code class="cmd">core-aarch64.tar.gz (121 MB)</code>
+      </div>
+      <div class="step reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        <h3>Select in App</h3>
+        <p>Open the onboarding wizard, tap "Select chroot from storage" and pick the tarball. The app extracts and boots it automatically.</p>
+        <code class="cmd">bootroot: mounted /proc /sys /dev</code>
+      </div>
+      <div class="step reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.2 4.2l2.9 2.9m9.8 9.8l2.9 2.9M1 12h4m14 0h4M4.2 19.8l2.9-2.9m9.8-9.8l2.9-2.9"/></svg></div>
+        <h3>Attack</h3>
+        <p>Launch WiFi scans, start an Evil Twin or Captive Portal, capture handshakes or enumerate networks — all from the dashboard.</p>
+        <code class="cmd">creds.txt: 2026-08-05 | password</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="download">
+  <div class="container dl-wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">// DOWNLOAD</span>
+      <h2 class="sec-title">Get Your Demon</h2>
+      <p class="sec-sub">Everything is hosted on GitHub Releases. Pick a version, grab the APK and the matching core file.</p>
+    </div>
+
+    <div class="ver-tabs reveal" id="verTabs">
+      <button class="ver-tab active" data-ver="v1.1">v1.1 <span class="tag">RECOMMENDED</span></button>
+      <button class="ver-tab" data-ver="v1.0">v1.0</button>
+    </div>
+
+    <div class="dl-card reveal" id="dlCard">
+      <!-- filled by JS -->
+    </div>
+
+    <p class="dl-note reveal">Prefer a browser visit? <a href="https://github.com/mahmudabegum8859-design/your-demon/releases" target="_blank" rel="noopener">Browse all releases on GitHub →</a></p>
+
+    <div class="release-notes reveal" id="relNotes">
+      <h4>▶ v1.1 Release Notes</h4>
+      <ul>
+        <li>Fixed dnsmasq startup inside chroot ("unknown user or group") — Evil Twin &amp; Captive Portal now work out of the box.</li>
+        <li>Fixed chroot build packaging for relative-path invocations.</li>
+        <li>Verified end-to-end: chroot boot, hostapd, dnsmasq (DHCP + wildcard DNS), credential capture.</li>
+      </ul>
+    </div>
+
+    <div class="warn reveal">
+      <svg style="width:20px;height:20px;flex-shrink:0;margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <span><b>Ethical use only.</b> Your Demon is an educational security tool. Use it exclusively on networks you own or are authorized to test. The developer is not responsible for misuse.</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPAT -->
+<section id="compat">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">// REQUIREMENTS</span>
+      <h2 class="sec-title">Runs Where You Need It</h2>
+      <p class="sec-sub">A rooted or root-accessible (su) device keeps it simple, but the app adapts to your setup.</p>
+    </div>
+    <div class="compat">
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></div>
+        <div><h4>Android 7+ (aarch64)</h4><p>Built for arm64 devices. The chroot runs natively — no emulator, no cloud.</p></div>
+      </div>
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h4>Root / su required</h4><p>Chroot boot and monitor-mode features need a rooted device with a su binary.</p></div>
+      </div>
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><h4>WiFi Chipset Support</h4><p>AP &amp; monitor mode depend on your WiFi driver. External adapters give the best results.</p></div>
+      </div>
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/></svg></div>
+        <div><h4>~300 MB Free</h4><p>About 121 MB for the chroot plus a little headroom for captures and wordlists.</p></div>
+      </div>
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div><h4>Storage Access</h4><p>Captures, portal files and logs live under /storage/emulated/0/YourDemon.</p></div>
+      </div>
+      <div class="comp reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><h4>Offline-First</h4><p>Everything runs locally inside the chroot. No server, no account, no internet.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">// FAQ</span>
+      <h2 class="sec-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q">Do I need a PC to use this? <span class="arr">+</span></button>
+        <div class="faq-a"><p>No. Everything — chroot extraction, boot, scanning and attacks — happens on the phone itself. A PC is never required.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which APK should I download? <span class="arr">+</span></button>
+        <div class="faq-a"><p>The <b>release</b> APK is the signed production build — use it for normal use. The <b>debug</b> APK is for development and testing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the "core" file? <span class="arr">+</span></button>
+        <div class="faq-a"><p>core-aarch64.tar.gz is the prebuilt Alpine Linux chroot containing all tools (hostapd, dnsmasq, aircrack-ng, nmap, hydra, python3 and more). The app extracts it and boots it in an isolated environment on your device.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does it require root? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Yes for full functionality — the chroot needs to be booted with superuser privileges (su). Monitor mode and Evil Twin also require a root shell and compatible WiFi hardware.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is it legal? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Your Demon is an educational tool. Using it on networks you do not own or lack permission to test may violate local laws. You are responsible for staying within legal boundaries.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does it work on my phone? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Any Android 7+ device with an aarch64 (arm64) CPU works. WiFi features depend on your chipset — some phones cannot enter monitor mode or host an AP; an external adapter solves this.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>YOUR <em>DEMON</em></a>
+        <p>The offline WiFi pentest &amp; Evil Twin toolkit for Android. Built on Alpine Linux, hosted on GitHub, crafted for security research.</p>
+      </div>
+      <div class="foot-links">
+        <div class="col">
+          <h5>PRODUCT</h5>
+          <a href="#features">Features</a>
+          <a href="#how">How It Works</a>
+          <a href="#download">Download</a>
+          <a href="#compat">Requirements</a>
+        </div>
+        <div class="col">
+          <h5>RESOURCES</h5>
+          <a href="#faq">FAQ</a>
+          <a href="https://github.com/mahmudabegum8859-design/your-demon" target="_blank" rel="noopener">GitHub Repo</a>
+          <a href="https://github.com/mahmudabegum8859-design/your-demon/releases" target="_blank" rel="noopener">All Releases</a>
+          <a href="https://github.com/mahmudabegum8859-design/your-demon/issues" target="_blank" rel="noopener">Report Issue</a>
+        </div>
+        <div class="col">
+          <h5>LEGAL</h5>
+          <a href="#faq">Ethical Use Policy</a>
+          <a href="#compat">Hardware Notes</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Your Demon. Released under MIT License.</span>
+      <span class="legal">YOUR DEMON v1.1 · BUILT WITH ♥</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* ---------- particle canvas (video-like background) ---------- */
+(function(){
+  var cv=document.getElementById('bg-canvas'),ctx=cv.getContext('2d'),P=[];
+  function rsz(){cv.width=innerWidth;cv.height=innerHeight}
+  rsz();addEventListener('resize',rsz);
+  var N=Math.min(90,Math.floor(innerWidth/16));
+  for(var i=0;i<N;i++){P.push({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*1.8+.5})}
+  function loop(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    for(var i=0;i<P.length;i++){
+      var p=P[i];p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle='rgba(0,229,255,.55)';ctx.fill();
+      for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<110){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(139,92,246,'+(0.14*(1-d/110))+')';ctx.lineWidth=1;ctx.stroke()}}
+    }
+    requestAnimationFrame(loop)
+  }
+  loop();
+})();
+
+/* ---------- typing effect ---------- */
+(function(){
+  var phrases=[
+    '> airodump-ng wlan0mon --bssid AA:BB:CC:DD:EE:01',
+    '> hostapd hostapd.conf -B        [rogue AP up]',
+    '> dnsmasq -C dnsmasq.conf        [DHCP + DNS wildcard]',
+    '> python3 capture_server.py      [portal on :80]',
+    '> aircrack-ng handshake.cap -w wordlist.txt',
+    '> nmap -sV 192.168.4.1 | hydra -l admin brute'
+  ],pi=0,ci=0,del=false;
+  var el=document.getElementById('typeText');
+  (function tick(){
+    var cur=phrases[pi];
+    el.textContent=del?cur.slice(0,ci--):cur.slice(0,ci++);
+    var sp=del?30:70;
+    if(!del&&ci===cur.length){del=true;sp=2200}
+    else if(del&&ci===0){del=false;pi=(pi+1)%phrases.length;sp=500}
+    setTimeout(tick,sp)
+  })();
+})();
+
+/* ---------- hero terminal line reveal ---------- */
+(function(){
+  var lines=document.querySelectorAll('#termBody .tline');
+  lines.forEach(function(l,i){l.style.animationDelay=(i*0.9)+'s';l.classList.add('tline')});
+  setTimeout(function(){lines.forEach(function(l){l.style.opacity=1})},150);
+  /* simple sequential reveal loop for video-like effect */
+  var idx=0,on=false;
+  function showNext(){
+    if(idx>=lines.length){idx=0;lines.forEach(function(l){l.style.opacity=0});setTimeout(showNext,2500);return}
+    lines[idx].style.opacity=1;idx++;setTimeout(showNext,700)
+  }
+  setTimeout(showNext,1000);
+})();
+
+/* ---------- scroll reveal ---------- */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+
+/* ---------- counters ---------- */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);animate(e.target,parseInt(e.target.dataset.to))}})},{threshold:.5});
+  ['c1','c2','c3'].forEach(function(id){var el=document.getElementById(id);el.dataset.to=el.id==='c1'?5200:el.id==='c2'?15:8;io.observe(el)});
+  function animate(el,to){var s=Date.now(),dur=1400;
+    (function f(){var t=Math.min((Date.now()-s)/dur,1),e=1-Math.pow(1-t,3);el.textContent=Math.floor(e*to).toLocaleString();if(t<1)requestAnimationFrame(f)})()}
+})();
+
+/* ---------- download data + version switch ---------- */
+var RELEASES={
+  'v1.1':{
+    apkR:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.1/app-release.apk',size:'8.6 MB'},
+    apkD:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.1/app-debug.apk',size:'11.5 MB'},
+    core:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.1/core-aarch64.tar.gz',size:'121 MB'},
+    notes:['Fixed dnsmasq startup inside chroot — Evil Twin & Captive Portal work out of the box.','Fixed chroot build packaging for relative-path invocations.','Verified end-to-end: chroot boot, hostapd, dnsmasq DHCP + wildcard DNS, credential capture.','Signed release APK (8.6 MB) with minify disabled for dynamic string lookup.']
+  },
+  'v1.0':{
+    apkR:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.0/app-release.apk',size:'8.6 MB'},
+    apkD:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.0/app-debug.apk',size:'11.5 MB'},
+    core:{href:'https://github.com/mahmudabegum8859-design/your-demon/releases/download/v1.0/core-aarch64.tar.gz',size:'121 MB'},
+    notes:['Initial WiFi-only release: Dashboard, WiFi audit, Captive Portal and Evil Twin.','Menu stripped down to the four core modules.','Chroot rebuilt locally with hostapd, dnsmasq and the full busybox applet set.']
+  }
+};
+
+function renderDownloads(ver){
+  var d=RELEASES[ver],html='';
+  html+=card('app-release.apk','Release APK','Signed production build for everyday use.','RECOMMENDED','b-rec',d.apkR.href,d.apkR.size);
+  html+=card('app-debug.apk','Debug APK','Development build with debug logging enabled.','DEBUG','b-dev',d.apkD.href,d.apkD.size);
+  html+=card('core-aarch64.tar.gz','Core Chroot','Alpine aarch64 chroot with all pentest tools.','CORE','b-core',d.core.href,d.core.size);
+  document.getElementById('dlCard').innerHTML=html;
+  var notes='<h4>▶ '+ver+' Release Notes</h4><ul>'+d.notes.map(function(n){return '<li>'+n+'</li>'}).join('')+'</ul>';
+  document.getElementById('relNotes').innerHTML=notes;
+}
+function card(name,title,desc,badge,bc,href,size){
+  return '<div class="dl-item"><span class="badge '+bc+'">'+badge+'</span>'+
+  '<span class="file">'+name+'</span><h3>'+title+'</h3><p>'+desc+'</p>'+
+  '<div class="meta"><span>Size <b>'+size+'</b></span><span>Source <b>GitHub</b></span></div>'+
+  '<a class="down" href="'+href+'" onclick="track(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>Download</a></div>';
+}
+renderDownloads('v1.1');
+
+document.querySelectorAll('.ver-tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.ver-tab').forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active');renderDownloads(t.dataset.ver);
+    toast('Switched to '+t.dataset.ver);
+  });
+});
+
+/* ---------- misc ---------- */
+function track(el,label){toast('Starting download: '+(label||el.closest('.dl-item').querySelector('.file').textContent)+' — hosted on GitHub')}
+function goDownload(){document.getElementById('download').scrollIntoView({behavior:'smooth'})}
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._tm);t._tm=setTimeout(function(){t.classList.remove('show')},2400)}
+
+document.getElementById('burger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
+
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.parentElement,ans=item.querySelector('.faq-a');
+    var open=item.classList.toggle('open');
+    ans.style.maxHeight=open?(ans.scrollHeight+40)+'px':'0';
+  });
+});
+</script>
+</body>
+</html>

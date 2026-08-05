@@ -1,0 +1,85 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.YourDemon" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:buttonStyle">@style/MonsButton</item>
+        <item name="android:textViewStyle">@style/MonsText</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/blue</item>
+        <item name="colorPrimary">@color/blue2</item>
+        <item name="colorPrimaryVariant">@color/blue2</item>
+        <item name="colorSecondary">@color/blue2</item>
+        <item name="colorSecondaryVariant">@color/blue</item>
+        <item name="colorPrimaryDark">?attr/colorSurface</item>
+        <item name="floatingActionButtonStyle">@style/Widget.YourDemon.FAB</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.YourDemon.AlertDialog</item>
+        <item name="materialCardViewStyle">@style/Cards</item>
+        <item name="switchStyle">@style/Widget.App.Switch</item>
+        <item name="android:navigationBarColor">@color/nightwhite</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/nightwhite</item>
+        <item name="navigationViewStyle">@style/Widget.YourDemon.NavigationView</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Cards" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/main</item>
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+    <style name="Widget.YourDemon.FAB" parent="Widget.Material3.FloatingActionButton.Primary">
+    </style>
+
+    <style name="Widget.YourDemon.NavigationView" parent="Widget.Material3.NavigationView">
+        <item name="android:background">@color/nightwhite</item>
+        <item name="enforceMaterialTheme">false</item>
+        <item name="itemIconTint">@color/menu_item</item>
+        <item name="itemTextColor">@color/menu_item</item>
+        <item name="itemShapeFillColor">@color/menu_item_shape</item>
+    </style>
+
+    <style name="ThemeOverlay.YourDemon.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/blue2</item>
+        <item name="android:background">@color/nightwhite</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Switch" parent="">
+        <item name="colorOnSurface">#ff3f99ff</item>
+        <item name="colorSecondary">@color/blue2</item>
+    </style>
+
+    <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.NavigationView</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemShapeFillColor">@color/selected</item>
+    </style>
+
+    <style name="ThemeOverlay.App.NavigationView" parent="">
+        <item name="colorPrimary">@color/purple_700</item>
+    </style>
+
+    <style name="Theme.YourDemon.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/white_rectangle</item>
+    </style>
+
+    <style name="MonsButton" parent="Widget.Material3.Button">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MonsText" parent="android:TextAppearance.Material.Widget.TextView">
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+</resources>

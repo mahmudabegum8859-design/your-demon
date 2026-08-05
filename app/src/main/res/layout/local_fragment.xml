@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".wifi.Wifi">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:id="@+id/local_scan"
+
+      android:orientation="vertical">
+      <com.airbnb.lottie.LottieAnimationView
+          android:layout_width="250dp"
+          android:id="@+id/local_img"
+          app:lottie_rawRes="@raw/ok"
+          app:lottie_autoPlay="true"
+          android:layout_height="250dp"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/local_scan"
+          android:layout_marginLeft="15dp"
+          android:layout_marginRight="15dp"
+          android:textSize="15dp"
+          android:gravity="center"
+          android:id="@+id/local_text"
+          android:textStyle="bold" />
+      <com.google.android.material.progressindicator.LinearProgressIndicator
+          android:id="@+id/nmap_progressbar"
+          android:layout_width="match_parent"
+          android:layout_height="20dp"
+          app:indicatorColor="@color/blue"
+          android:layout_marginStart="15dp"
+          android:layout_marginEnd="15dp"
+          android:layout_marginTop="5dp"
+          app:trackCornerRadius="5dp" />
+
+   </LinearLayout>
+
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       android:id="@+id/local_refresh"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/local_list"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/no_devices"
+          android:id="@+id/local_empty"
+          android:visibility="gone"
+          android:layout_gravity="center"
+          android:textSize="14sp"
+          android:textColor="@color/textcolor" />
+      </FrameLayout>
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

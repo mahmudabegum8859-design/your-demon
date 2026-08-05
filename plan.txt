@@ -1,0 +1,267 @@
+PLETE PROJECT PLAN
+=====================================
+Developer   : OP AMINUL FF
+Company     : OPX
+Project     : Your Demon
+GitHub Org  : https://github.com/OP-AMINUL-FF
+Source Repo : https://github.com/OP-AMINUL-FF/your-demon
+Based On    : Stryker App v4.0 (EOL)
+========================================================================
+PHASE 1: GITHUB INFRASTRUCTURE SETUP
+========================================================================
+[✓] 1.1 Create main repo: OP-AMINUL-FF/your-demon (private → public)
+     - Description: "Your Demon - Android Penetration Testing Suite"
+     - Topics: android, pentesting, wifi-security, security-tools
+     - Status: PUBLIC ✓ | Remote: git@github.com:OP-AMINUL-FF/your-demon.git ✓
+[✓] 1.2 Create updater repo: OP-AMINUL-FF/your-demon-updater
+     - Files to create:
+       - update (JSON) → {"version":1,"name":"1.0","srcapk":"https://github.com/OP-AMINUL-FF/your-demon/releases/download/1.0/your-demon-1.0.apk","chroot32":"...","chroot64":"...","isfix":false}
+       - msg (JSON) → {"title":"","msg":"","enabled":false,"buttontext":"","url":""}
+       - update.txt (plain text version number)
+       - msg.txt (plain text message)
+     - Status: All 4 files created with proper content ✓
+[✓] 1.3 Create modules repo: OP-AMINUL-FF/your-demon-modules
+     - Files to create:
+       - modules.list (JSON array of module definitions)
+     - Status: modules.list created with 2 sample modules ✓
+[✓] 1.4 Create chroot repo: OP-AMINUL-FF/your-demon-chroot
+     - Will host the Alpine Linux chroot tarballs for releases
+      - Initial release: v1.0 with basic Alpine + pentest tools
+      - Status: Repo created ✓ | v1.0 release with core64.tar.gz, core32.tar.gz ✓
+========================================================================
+PHASE 2: SOURCE CODE REBRANDING (APP → YOUR DEMON)
+========================================================================
+--- 2.1 Package & Build Configuration ---
+[✓] 2.1.1 settings.gradle
+      - rootProject.name = "your-demon"
+[✓] 2.1.2 app/build.gradle
+      - applicationId → "com.opx.yourdemon"
+      - versionCode → 1 (start fresh, was 27)
+      - versionName → "1.0"
+[✓] 2.1.3 logviewer/build.gradle
+      - applicationId → "com.opx.yourdemon.logviewer"
+[✓] 2.1.4 AndroidManifest.xml (app)
+      - package → "com.opx.yourdemon"
+      - sharedUserId → "com.opx.shared"
+      - app label → "Your Demon"
+      - theme → "@style/Theme.YourDemon"
+[✓] 2.1.5 AndroidManifest.xml (logviewer)
+      - package → "com.opx.yourdemon.logviewer"
+      - sharedUserId → "com.opx.shared"
+      - app label → "Your Demon Logs"
+--- 2.2 Java Package Migration ---
+[✓] 2.2.1 Move all files from com.zalexdev.stryker → com.opx.yourdemon
+      - Physical directory: app/src/main/java/com/opx/yourdemon/
+[✓] 2.2.2 Move logviewer files from com.zalexdev.logviewer → com.opx.yourdemon.logviewer
+[✓] 2.2.3 Update ALL package declarations in ~80+ Java files
+[✓] 2.2.4 Update ALL import references across all files
+[✓] 2.2.5 Update ALL drawable/string resource references in Java code
+[✓] 2.2.6 Update ALL layout XML files that reference com.zalexdev.stryker
+[✓] 2.2.7 Update Android resource XML files (navigation, etc.)
+[✓] 2.2.8 Update proguard-rules.pro if it has package references
+--- 2.3 Resource Rebranding ---
+[✓] 2.3.1 strings.xml
+      - app_name → "Your Demon"
+      - nav_header_title → "Your Demon"
+      - nav_header_subtitle → "OPX"
+      - version → "Version: 1.0"
+      - Remove references to "Stryker", replace with "Your Demon"
+      - Update strings mentioning "stryker" in paths etc.
+      - Renamed: delete_nstryker→delete_app, delete_stryker_and_chroot→delete_app_and_chroot, magisk_stryker→magisk_notification
+[✓] 2.3.2 Theme files (values/themes.xml, values-night/themes.xml)
+      - Rename theme "Theme.Stryker" → "Theme.YourDemon"
+      - Rename "Theme.Stryker.Splash" → "Theme.YourDemon.Splash"
+[✓] 2.3.3 Layout XML files
+      - Update any hardcoded "Stryker" text
+      - Update package references in layout files
+[✓] 2.3.4 Menu/navigation XML files
+      - Update any "Stryker" branding
+[✓] 2.3.5 Drawable resources
+       - Created custom vector drawables: ic_launcher_foreground (shield+D), ic_launcher_background (dark)
+       - Updated adaptive icon XML to use vector drawables instead of PNGs
+       - NOTE: Legacy mipmap PNGs kept for pre-API-26 compat, adaptive icon uses new design
+--- 2.4 Internal Binary Assets ---
+[✓] 2.4.1 Copy bundled binaries (chroot_exec, busybox, bootroot, killroot, sqlite3)
+      - These go in app/src/main/assets/ (already exist)
+      - Update all references to /data/data/com.opx.yourdemon/files/
+[✓] 2.4.2 Update devices.txt and routes.txt assets if needed
+========================================================================
+PHASE 3: URL & REMOTE SERVICE MIGRATION
+======================================================================
+--- 3.1 GitHub URL Replacements ---
+[✓] 3.1.1 Dashboard.java (line 164) — URL updated to your-demon-updater
+[✓] 3.1.2 Dashboard.java (line 187) — URL updated to your-demon-updater
+[✓] 3.1.3 Core.java (line 772) — Module list URL updated to your-demon-modules
+[✓] 3.1.4 Slide3.java (lines 99,101) — Chroot URLs updated to your-demon-chroot
+[✓] 3.1.5 CheckUpdates.java (line 14) — URL updated to your-demon-updater
+[✓] 3.1.6 CheckMsg.java (line 14) — URL updated to your-demon-updater
+[✓] 3.1.7 ActionsFragment.java (line 52) — Wiki URL updated
+--- 3.2 Community & Link Replacements ---
+[✓] 3.2.1 Account.java — web URL updated
+[✓] 3.2.2 Account.java — tg → YouTube
+[✓] 3.2.3 Account.java — 4pda → GitHub repo
+[✓] 3.2.4 Account.java — buymeacoffee removed
+[✓] 3.2.5 About.java — web URL updated
+[✓] 3.2.6 About.java — donate removed
+[✓] 3.2.7 About.java — tg → YouTube
+[✓] 3.2.8 About.java — 4pda → GitHub repo
+--- 3.3 Internal Path Updates ---
+[✓] 3.3.1 Core.java — EXECUTE path
+[✓] 3.3.2 Core.java — BUSYBOX path
+[✓] 3.3.3 CheckInet.java — ping target → github.com
+[✓] 3.3.4 Dashboard.java — Magisk DB paths
+[✓] 3.3.5 MainActivity.java — chmod path
+[✓] 3.3.6 Slide3.java — file path
+[✓] 3.3.7 Updater.java — busybox path
+[✓] 3.3.8 Settings.java — uninstall path
+[✓] 3.3.9 Fixer.java — fix APK path
+[✓] 3.3.10 Updater.java — update file names
+[✓] 3.3.11 Dashboard.java — fix file name
+[✓] 3.3.12 All storage paths: /storage/emulated/0/Stryker/ → /storage/emulated/0/YourDemon/
+--- 3.4 Strings & UI Text Updates ---
+[✓] 3.4.1 Replace all user-visible "Stryker" with "Your Demon"
+[✓] 3.4.2 Update nav_header_desc (not critical, generic text)
+[✓] 3.4.3 Update all error messages that reference "Stryker"
+[✓] 3.4.4 Update license/terms URLs if needed
+[✓] 3.4.5 MainActivity.java — Easter egg text → "Your Demon 🇺🇦"
+========================================================================
+PHASE 4: UPDATE SYSTEM REDESIGN
+======================================================================
+[✓] 4.1 Redesign version check
+       - Dashboard.java: int version = 23 → BuildConfig.VERSION_CODE
+       - updatedialog: hardcoded "23" → BuildConfig.VERSION_NAME
+[✓] 4.2 Update JSON format for the update check
+       - Dashboard.java: srcapk→apk_url, chroot32→chroot32_url, chroot64→chroot64_url
+       - updater repo: update JSON field names updated + pushed
+[✓] 4.3 Verify Fixer.java — takes URL param, no changes needed
+[✓] 4.4 Verify Updater.java — takes URL params, no changes needed
+[✓] 4.5 Add release signing configuration
+       - Keystore generated: your-demon.jks
+       - signingConfigs.release added to app/build.gradle
+       - release build type now uses signingConfig
+[✓] 4.6 Auto-update from GitHub Releases — already works via JSON URLs pointing to releases
+========================================================================
+PHASE 5: CHROOT (CORE) CREATION
+======================================================================
+[✓] 5.1 Build Alpine Linux chroot for arm64
+       - Fresh Alpine 3.23 aarch64 chroot built via apk.static (cross-arch)
+       - All pentest tools installed:
+         - nmap + nmap-scripts (port scanning)
+         - aircrack-ng (WiFi auditing with all ng tools)
+         - hydra (brute force auth) ← ADDED FRESH
+         - john (John the Ripper — password cracking) ← ADDED FRESH
+         - sqlmap via pip install script (first-boot)
+         - python3, py3-pip, py3-wcwidth, py3-flask, py3-requests, py3-colorama
+         - wpa_supplicant (WPA/WPA2 connectivity)
+         - pixiewps (WPS offline brute force)
+         - iw + wireless-tools (iwconfig, iwlist, iwpriv, iwgetid)
+         - iproute2 (ip, ss, bridge utils)
+         - tshark (packet capture)
+         - macchanger, arp-scan, nbtscan, nano, sqlite
+       - opx-oneshot cloned → /opt/opx-oneshot (CLI + web UI)
+       - 238 packages total, 410 MiB installed, 137 MB compressed
+[✓] 5.2 Build Alpine Linux chroot for arm32 (armv7l)
+       - Same tool stack, 237 packages, 338 MiB installed, 133 MB compressed
+[✓] 5.3 Upload to your-demon-chroot releases ✓
+        - core64.tar.gz → https://github.com/OP-AMINUL-FF/your-demon-chroot/releases/download/v1.0/core64.tar.gz
+        - core32.tar.gz → https://github.com/OP-AMINUL-FF/your-demon-chroot/releases/download/v1.0/core32.tar.gz
+        - Release: https://github.com/OP-AMINUL-FF/your-demon-chroot/releases/tag/v1.0
+[ ] 5.4 Test chroot extraction on rooted device
+[ ] 5.5 Verify core tools work inside chroot
+       - sqlmap needs pip3 install on first boot (opt/install-pips.sh)
+       - Build method: wsl -u root using apk.static cross-arch --allow-untrusted
+========================================================================
+PHASE 6: MODULE REPOSITORY SETUP
+=======================================================================
+[✓] 6.1 Create initial modules.list in your-demon-modules repo
+       - JSON format: {"status":true,"list":[{"name":"...","author":"OPX","desc":"...","version":1.0,"pkgs":"...","src":"...","bit":false,"proper":false}]}
+[✓] 6.2 Create sample modules
+       - EternalBlue Scanner: install.sh (nmap smb-vuln-ms17-010), delete.sh
+       - SMBGhost Checker: install.sh (nmap smb-vuln-cve-2020-0796), delete.sh
+       - Zipped + uploaded to your-demon-modules v1.0 release
+[✓] 6.3 Update modules.list URL in Core.java (DONE in Phase 3)
+========================================================================
+PHASE 7: CI/CD & BUILD PIPELINE
+=======================================================================
+[✓] 7.1 Update .github/workflows/android.yml
+       - actions/checkout@v2 → v4
+       - actions/setup-java@v2 → v4 with JDK 17
+       - CI-only build (no signing), triggers on push/PR to main
+[✓] 7.2 Create release workflow (.github/workflows/release.yml)
+       - On tag v*: decode keystore from GH secrets, build signed APK,
+         creates GitHub Release with app-release.apk attached
+       - Secrets needed: KEYSTORE_BASE64, STORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD
+[✓] 7.3 Test build locally
+       - ./gradlew assembleRelease → BUILD SUCCESSFUL (1m 14s)
+       - app-release.apk generated (5.5 MB)
+       - Fixed ExtraTranslation lint in values-ru-rRU/strings.xml
+       - Disabled unstable configuration-cache in gradle.properties
+[✓] 7.4 Generate signing keystore for your-demon (DONE in Phase 4)
+       - your-demon.jks exists at project root (2720 bytes)
+       - Base64: stored above for GitHub Secrets setup
+========================================================================
+PHASE 8: INITIAL RELEASE
+=======================================================================
+[✓] 8.1 Push all code to OP-AMINUL-FF/your-demon
+[✓] 8.2 Create v1.0 tag and release (tag pushed, release.yml CI triggered)
+[~] 8.3 Upload initial APK to release (CI builds & uploads via release.yml on tag push)
+[✓] 8.4 Upload chroot to your-demon-chroot releases (core64.tar.gz, core32.tar.gz on v1.0 release)
+[~] 8.5 Verify update check E2E (CI build must finish; raw.githubusercontent URLs resolve ✓)
+[✓] 8.6 Verify module repository loads (modules.list raw URL resolves ✓, module ZIPs resolve ✓)
+[ ] 8.7 Install on rooted Android device and test all features (physical device needed)
+========================================================================
+PHASE 9: DOCUMENTATION & CLEANUP
+========================================================================
+[✓] 9.1 Update README.md for Your Demon
+[✓] 9.2 Update docs/zh-CN/README.md
+[✓] 9.3 Remove old Stryker APK file from repo
+[✓] 9.4 Clean up .gradle/ build/ directories (gitignore handles)
+[✓] 9.5 Remove Stryker-specific screenshots or replace
+[✓] 9.6 Update License file if needed (keep GPL if same license)
+========================================================================
+REPOSITORY STRUCTURE (GITHUB)
+========================================================================
+OP-AMINUL-FF/
+├── your-demon/                  # Main app source code
+│   └── releases/               # APK releases + source tarballs
+├── your-demon-updater/          # Update check files (JSON + text)
+│   ├── update                  # JSON: version info + download URLs
+│   ├── msg                     # JSON: remote messages
+│   ├── update.txt              # Plain text version
+│   └── msg.txt                 # Plain text message
+├── your-demon-modules/          # Module definitions
+│   ├── modules.list            # JSON array of modules
+│   └── modules/                # Module ZIP files
+└── your-demon-chroot/           # Alpine chroot tarballs
+    └── releases/               # core64.tar.gz, core32.tar.gz
+========================================================================
+KEY FILES TO MODIFY (COMPLETE LIST)
+========================================================================
+App Source Files:
+  app/build.gradle, settings.gradle
+  app/src/main/AndroidManifest.xml
+  app/src/main/res/values/strings.xml
+  app/src/main/res/values/themes.xml
+  app/src/main/res/values-night/themes.xml
+  app/src/main/res/values-w600dp/themes.xml (if exists)
+  app/src/main/res/values-w1240dp/themes.xml (if exists)
+  app/src/main/res/menu/ (all files)
+  app/src/main/java/com/opx/yourdemon/   → all 50+ Java files
+LogViewer Module:
+  logviewer/build.gradle
+  logviewer/src/main/AndroidManifest.xml
+  logviewer/src/main/java/com/opx/yourdemon/logviewer/   → Java files
+Build/CI:
+  .github/workflows/android.yml
+  gradle.properties (add signing config)
+  proguard-rules.pro
+========================================================================
+NOTES
+========================================================================
+- The app will check GitHub Releases for updates: if the latest release
+  version tag is higher than the current VERSION_CODE, it prompts update.
+- All pentest tools live inside the Alpine chroot, not natively on Android.
+- The core manager lets users install additional tools via APK (Alpine) and PIP
+  inside the chroot.
+- The module repository is a dynamic list fetched from GitHub at runtime.
+- This plan supersedes all previous plan.txt content.

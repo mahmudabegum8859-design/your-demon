@@ -1,0 +1,52 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Build outputs
+/build
+logviewer/build/
+*.apk
+*.ap_
+*.aab
+
+# Keystore & signing
+*.jks
+*.keystore
+*.jks.bk
+
+# Chroot
+chroot/**/*.tar.gz
+chroot/**/*.tgz
+chroot/output/
+chroot/New\ folder/
+
+# Alpine metadata (signing keys, package indexes)
+.SIGN.RSA.*
+APKINDEX
+DESCRIPTION
+
+# Module repository artifacts
+modules/
+
+# Updater files (client-side mirror)
+updater/
+
+# Old chroot tarballs
+chroot/*.tar.gz
+chroot/*.tgz
+
+# OS files
+Thumbs.db
+*.swp
+*.swo

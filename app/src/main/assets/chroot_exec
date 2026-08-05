@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+######### ALPINE EXEC #########
+FROM_DEV_TO_WORLD=$(readlink -f $0)
+. ${FROM_DEV_TO_WORLD%/*}/bootroot_env
+$BUSYBOX chroot $MNT $CHROOT_EXEC -E PATH=$PATH $1&&exit
