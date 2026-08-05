@@ -32,8 +32,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            // minify/shrink are disabled because Core.str() looks up string
+            // resources dynamically via getIdentifier(); shrinking would strip
+            // those strings and break the UI (e.g. Evil Twin, Captive Portal).
+            minifyEnabled false
+            shrinkResources false
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
