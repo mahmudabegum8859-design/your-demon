@@ -3,754 +3,913 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-
-
-
-<LinearLayout
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:isScrollContainer="true"
-    android:nestedScrollingEnabled="true"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:text="@string/wifi"
-    android:textSize="20dp"/>
+    android:fillViewport="true"
+    android:background="@color/background">
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    >
-
-    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        app:checkedIconSize="20dp"
-
-        app:checkedIconTint="#4A006064"
-        android:id="@+id/settings_scan"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="6dp"
-        app:rippleColor="#4A006064">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/interface_scan"
-            android:tint="#006064" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/set_scan_ninterface"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:padding="10dp"
-            android:id="@+id/scan_text"
-            android:text="Set custom scan interface.\nCurrent: wlan0"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:id="@+id/settings_deauth"
-        app:cardCornerRadius="15dp"
-
-        app:checkedIconSize="20dp"
-        app:checkedIconTint="#4FE65100"
-        app:cardElevation="6dp"
-        app:rippleColor="#4FE65100">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/interface_deauth"
-            android:tint="#C54500" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/set_deauth_ninterface"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:padding="10dp"
-            android:id="@+id/deauth_text"
-            android:text="Set custom deauth interface.\nCurrent: wlan1"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-
-</LinearLayout>
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/pixie_off"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#6200EA"
-        app:rippleColor="#776200EA"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/noof"
-            android:tint="#6200EA" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/not_nturn_off"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/do_not_turn_off_the_wifi_for_pixie_dust"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/auto_update"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#1B5E20"
-        app:rippleColor="#33691E"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/update"
-            android:tint="#1B5E20" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/auto_nupdate"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/automatically_check_for_updates"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-
-</LinearLayout>
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/three_wifi_scan"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#33691E"
-        app:rippleColor="#A133691E"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/wifi3"
-            android:tint="#33691E" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/check_n3wifi"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/check_3wifi_database_for_nearest_wifi"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/store_scan"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#BFBC0C"
-        app:rippleColor="#A1D3BE37"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/store"
-            android:tint="#B19A23" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/store_n_aps"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/store_successful_pentested_aps"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:isScrollContainer="true"
+        android:nestedScrollingEnabled="true"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/skip_port_scan"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#D32F2F"
-        app:rippleColor="#A1D32F2F"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/noof"
-            android:tint="#D32F2F" />
+        android:paddingBottom="24dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/skip_port_scan"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/wifi"
+            style="@style/Text.SectionTitle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/settings_scan"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface"
+                app:checkedIconSize="20dp"
+                app:checkedIconTint="@color/accent"
+                app:rippleColor="@color/ripple_overlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/interface_scan"
+                        android:tint="@color/accent"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/set_scan_ninterface"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="6dp"
+                        android:id="@+id/scan_text"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:text="Set custom scan interface.\nCurrent: wlan0" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:id="@+id/settings_deauth"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface"
+                app:checkedIconSize="20dp"
+                app:checkedIconTint="@color/warning"
+                app:rippleColor="@color/ripple_overlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/interface_deauth"
+                        android:tint="@color/warning"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/set_deauth_ninterface"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="6dp"
+                        android:id="@+id/deauth_text"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:text="Set custom deauth interface.\nCurrent: wlan1" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/pixie_off"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/purple_500"
+                app:rippleColor="#667C3AED"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/noof"
+                        android:tint="@color/purple_500" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/not_nturn_off"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/do_not_turn_off_the_wifi_for_pixie_dust"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/auto_update"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/success"
+                app:rippleColor="#66059669"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/update"
+                        android:tint="@color/success" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/auto_nupdate"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/automatically_check_for_updates"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/three_wifi_scan"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/success_dark"
+                app:rippleColor="#66059669"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/wifi3"
+                        android:tint="@color/success_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/check_n3wifi"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/check_3wifi_database_for_nearest_wifi"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/store_scan"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/warning"
+                app:rippleColor="#66B45309"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/store"
+                        android:tint="@color/warning" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/store_n_aps"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/store_successful_pentested_aps"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/skip_port_scan"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/error"
+                app:rippleColor="#66DC2626"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/noof"
+                        android:tint="@color/error" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/skip_port_scan"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/skip_port_scan"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/save_wifi_history"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/warning_dark"
+                app:rippleColor="#66D97706"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/store"
+                        android:tint="@color/warning_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/save_wifi_history"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/save_wifi_history_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/skip_port_scan"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        app:checkedIconSize="20dp"
-        android:id="@+id/save_wifi_history"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:checkedIconTint="#F57C00"
-        app:rippleColor="#A1F57C00"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/general_set"
+            style="@style/Text.SectionTitle" />
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="44dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/store"
-            android:tint="#F57C00" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/save_wifi_history"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/nightmode"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/primary"
+                app:rippleColor="@color/ripple_overlay"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/night_mode"
+                        android:tint="@color/primary"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/dark_theme"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:id="@+id/night_text"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:text="@string/now1" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:checkable="true"
+                app:checkedIconTint="@color/purple_700"
+                android:id="@+id/settings_hide"
+                app:rippleColor="#667C3AED"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/hidemac"
+                        android:tint="@color/purple_700"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/hide_macs"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/hide_macs_in_all_application_parts"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:paddingLeft="10dp"
-            android:padding="10dp"
-            android:text="@string/save_wifi_history_desc"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/general_set"
-        android:textSize="20dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <com.google.android.material.card.MaterialCardView
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/settings_debug"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:checkedIconTint="@color/text_hint"
+                app:rippleColor="#66647488"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/debug"
+                        android:tint="@color/text_hint"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/debug_mode_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/catch_all_commands_output_and_errors"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/settings_offline"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:checkedIconTint="@color/text_hint"
+                app:rippleColor="#66647488"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/no_wifi"
+                        android:tint="@color/text_hint"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/offline_mode"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/offline_mode_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            app:cardElevation="6dp"
-            app:checkedIconSize="20dp"
-            android:id="@+id/nightmode"
-            android:clickable="true"
-            android:focusable="true"
-            app:checkedIconTint="#01579B"
-            app:rippleColor="#01579B"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="15dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/night_mode"
-                android:tint="#01579B"
-                />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                app:checkedIconTint="@color/accent"
+                android:id="@+id/settings_module"
+                app:rippleColor="@color/ripple_overlay"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
 
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/dark_theme"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-            <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/module"
+                        android:tint="@color/accent"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/install_nfix"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/install_stm_files"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:id="@+id/night_text"
-                android:paddingLeft="10dp"
-                android:padding="10dp"
-                android:text="@string/now1"
-                android:textSize="16dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                app:checkedIconTint="@color/primary"
+                android:id="@+id/thread_count"
+                app:rippleColor="@color/ripple_overlay"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/debug"
+                        android:tint="@color/primary"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/thread_count_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:id="@+id/thread_count_text"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:text="100" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            app:cardElevation="6dp"
-            android:clickable="true"
-            app:checkedIconSize="20dp"
-            android:checkable="true"
-            app:checkedIconTint="#4A148C"
-            android:id="@+id/settings_hide"
-            app:rippleColor="#4A5E35B1"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="15dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/hidemac"
-                android:tint="#4A148C"
-                />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/settings_unmount"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface"
+                app:checkedIconTint="@color/accent"
+                app:rippleColor="@color/ripple_overlay">
 
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/hide_macs"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-            <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/unmount"
+                        android:tint="@color/accent"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/unmount_nchroot"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/safe_modification_data_lose_prevent"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:id="@+id/settings_delete"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/surface"
+                app:checkedIconTint="@color/error"
+                app:rippleColor="#66DC2626">
 
-                android:padding="10dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                android:text="@string/hide_macs_in_all_application_parts"
-                android:textSize="16dp"
-                 />
-        </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_margin="12dp"
+                        android:src="@drawable/delete"
+                        android:tint="@color/error"
+                        android:background="@drawable/circle_gradient"
+                        android:padding="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:gravity="right"
+                        android:text="@string/delete_app"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/delete_app_and_chroot"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            app:cardElevation="6dp"
-            app:checkedIconSize="20dp"
-            android:id="@+id/settings_debug"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:checkedIconTint="#636363"
-            app:rippleColor="#90686868"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="15dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/debug"
-                android:tint="#717171"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/debug_mode_title"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-
-                android:paddingLeft="10dp"
-                android:padding="10dp"
-                android:text="@string/catch_all_commands_output_and_errors"
-                android:textSize="16dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/settings_offline"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:checkable="true"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="15dp"
-            app:checkedIconTint="#757575"
-            app:rippleColor="#90686868"
-            android:layout_margin="10dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/no_wifi"
-                android:tint="#757575" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/offline_mode"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:padding="10dp"
-                android:text="@string/offline_mode_desc"
-                android:textSize="16dp" />
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="1"
-            app:cardElevation="6dp"
-            android:clickable="true"
-            app:checkedIconTint="#16BAA7"
-            android:id="@+id/settings_module"
-            app:rippleColor="#4A35B1AD"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="15dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/module"
-                android:tint="#32AABA"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/install_nfix"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-
-                android:padding="10dp"
-                android:text="@string/install_stm_files"
-                android:textSize="16dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        app:cardElevation="6dp"
-        android:clickable="true"
-        app:checkedIconSize="20dp"
-        app:checkedIconTint="#1565C0"
-        android:id="@+id/thread_count"
-        app:rippleColor="#4A1565C0"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="15dp">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/debug"
-            android:tint="#1565C0"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="right"
-            android:paddingRight="10dp"
-            android:text="@string/thread_count_title"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:id="@+id/thread_count_text"
-            android:padding="10dp"
-            android:text="100"
-            android:textSize="16dp"
-            />
-    </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            app:checkedIconSize="20dp"
-
-            app:checkedIconTint="#4A006064"
-            android:id="@+id/settings_unmount"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="6dp"
-            app:rippleColor="#4A006064">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/unmount"
-                android:tint="#880E4F" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/unmount_nchroot"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-
-                android:padding="10dp"
-
-                android:text="@string/safe_modification_data_lose_prevent"
-                android:textSize="16dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:id="@+id/settings_delete"
-            app:cardCornerRadius="15dp"
-
-            app:checkedIconSize="20dp"
-            app:checkedIconTint="#4FE65100"
-            app:cardElevation="6dp"
-            app:rippleColor="#4FE65100">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/delete"
-                android:tint="#B71C1C" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="@string/delete_app"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-
-                android:padding="10dp"
-                android:text="@string/delete_app_and_chroot"
-                android:textSize="16dp"
-                />
-        </com.google.android.material.card.MaterialCardView>
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
 </ScrollView>

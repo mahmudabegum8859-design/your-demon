@@ -1,66 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
     tools:context=".wifi.Wifi">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/refresh">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wifilist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/wifilist"/>
+    <LinearLayout
+        android:id="@+id/scanlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:gravity="center"
-       android:id="@+id/scanlayout"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-       android:orientation="vertical">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="24dp">
 
-      <com.airbnb.lottie.LottieAnimationView
-          android:id="@+id/scan_img"
-          android:layout_width="250dp"
-          android:layout_height="250dp"
-          app:lottie_rawRes="@raw/scan_wifi"
-          app:lottie_autoPlay="true"
-          app:lottie_loop="true"
-          />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/scanning_wifi"
-          android:textSize="15dp"
-          android:gravity="center"
-          android:id="@+id/scan_text"
-          android:textStyle="bold" />
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/scan_img"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        app:lottie_rawRes="@raw/scan_wifi"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
 
+                    <TextView
+                        android:id="@+id/scan_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:text="@string/scanning_wifi"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-          android:id="@+id/try_again"
-          android:visibility="gone"
-          android:clickable="true"
-          android:focusable="true"
-          android:drawableTint="@color/blue2"
-          android:gravity="center"
-          android:drawablePadding="5dp"
-          android:text="@string/try_again"
-          android:textColor="@color/blue2"
-          android:textSize="16dp"
-          android:textStyle="bold"
-          app:drawableLeftCompat="@drawable/refresh" />
-
-   </LinearLayout>
+                    <TextView
+                        android:id="@+id/try_again"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:drawableTint="@color/primary"
+                        android:drawablePadding="6dp"
+                        android:gravity="center"
+                        android:text="@string/try_again"
+                        android:textColor="@color/primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        app:drawableLeftCompat="@drawable/refresh" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

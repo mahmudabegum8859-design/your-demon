@@ -4,243 +4,336 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:paddingBottom="15dp"
+    android:paddingBottom="20dp"
     android:layout_height="wrap_content">
 
-<LinearLayout
-    android:layout_width="150dp"
-    android:layout_height="5dp"
-    android:background="@drawable/rectangle"
-    android:layout_gravity="center"
-    android:gravity="bottom"
-    android:layout_marginTop="8dp"/>
+    <LinearLayout
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:background="@drawable/rectangle"
+        android:layout_gravity="center"
+        android:alpha="0.4"
+        android:gravity="bottom"
+        android:layout_marginTop="10dp"/>
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="150dp"
 
-
-        android:layout_height="150dp">
-
-        <ImageView
-            android:id="@+id/device_img"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/devices_other"
-            app:tint="#606060" />
-
-        <TextView
-            android:id="@+id/port_count"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/circle"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="5"
-            android:textColor="#606060"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp">
 
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circle_gradient"
+                    android:gravity="center">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/device_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+                    <ImageView
+                        android:id="@+id/device_img"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/devices_other"
+                        app:tint="@color/white" />
+                </LinearLayout>
 
-        android:text="192.168.1.1"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/port_count"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/circle_white"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/device_mac"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="MAC address"
-        android:layout_marginTop="5dp"
-        android:textIsSelectable="true"
-        android:textSize="15dp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/device_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat"
+                android:text="192.168.1.1"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/device_mac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="monospace"
+                android:text="MAC address"
+                android:textColor="@color/text_secondary"
+                android:textIsSelectable="true"
+                android:textSize="14sp" />
+        </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
+
     <net.cachapa.expandablelayout.ExpandableLayout
         android:layout_width="match_parent"
-        app:el_duration="50"
+        app:el_duration="400"
         app:el_expanded="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/expand_device_actions"
         app:el_parallax="0.5"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="5dp"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/check_smb"
-                android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/smb_check"
-                    android:layout_height="30dp"/>
+                android:layout_marginBottom="8dp">
 
-                <TextView
-
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/check_smb"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/check_smb"
-                    android:textSize="20dp" />
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
 
-            </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/check_rdp"
-        android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/scan_rdp"
-            android:layout_height="30dp"/>
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/smb_check"
+                            android:tint="@color/primary" />
+                    </LinearLayout>
 
-        <TextView
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/check_smb"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="@string/check_rdp"
-            android:textSize="20dp" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="gone"
-        android:id="@+id/check_camera"
-        android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/check_camera"
-            android:layout_height="30dp"/>
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="@string/check_camera"
-            android:textSize="20dp" />
-
-    </LinearLayout>
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/check_admin_panel"
-                android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/admin_panel"
-                    android:layout_height="30dp"/>
+                android:layout_marginBottom="8dp">
 
-                <TextView
-
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/check_rdp"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/check_admin"
-                    android:textSize="20dp" />
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
 
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/run_exploit"
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/scan_rdp"
+                            android:tint="@color/accent" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/check_rdp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/run"
-                    android:tint="@color/grey"
-                    android:layout_height="30dp"/>
+                android:layout_marginBottom="8dp">
 
-                <TextView
-
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    android:id="@+id/check_camera"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:text="@string/run_custom"
-                    android:textSize="20dp" />
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
 
-            </LinearLayout>
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/check_camera"
+                            android:tint="@color/warning" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/check_camera"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/check_admin_panel"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/admin_panel"
+                            android:tint="@color/success" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/check_admin"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Cards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/run_exploit"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/run"
+                            android:tint="@color/error" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginStart="14dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/run_custom"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </net.cachapa.expandablelayout.ExpandableLayout>
 </LinearLayout>

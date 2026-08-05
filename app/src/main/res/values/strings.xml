@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">Your Demon </string>
+    <string name="header_subtitle">Professional WiFi &amp; Network Pentesting Suite</string>
+    <string name="download_required">The app needs additional files to work. Tap to start the download!</string>
+    <string name="hero_hint">Your all-in-one wireless security toolkit</string>
+    <string name="account">Account </string>
+    <string name="edit">Edit </string>
+    <string name="account_hint">Your profile</string>
+    <string name="app_version">Version: 1.0</string>
+    <string name="links">Links</string>
+    <string name="verified">Verified </string>
+    <string name="coffee">Buy me a coffee </string>
+    <string name="ethereum">Ethereum </string>
+    <string name="bitcoin">Bitcoin </string>
+    <string name="creditcard">Credit Card (UAH) </string>
+    <string name="search">Search </string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer </string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer </string>
     <string name="nav_header_title">Your Demon </string>

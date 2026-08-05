@@ -3,51 +3,85 @@
     <style name="Theme.YourDemon" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:buttonStyle">@style/MonsButton</item>
         <item name="android:textViewStyle">@style/MonsText</item>
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSecondary">@color/blue</item>
-        <item name="colorPrimary">@color/blue2</item>
-        <item name="colorPrimaryVariant">@color/blue2</item>
-        <item name="colorSecondary">@color/blue2</item>
-        <item name="colorSecondaryVariant">@color/blue</item>
-        <item name="colorPrimaryDark">?attr/colorSurface</item>
+        <item name="colorOnSecondary">@color/text_on_accent</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorOutline">@color/border</item>
+
         <item name="floatingActionButtonStyle">@style/Widget.YourDemon.FAB</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.YourDemon.AlertDialog</item>
         <item name="materialCardViewStyle">@style/Cards</item>
         <item name="switchStyle">@style/Widget.App.Switch</item>
-        <item name="android:navigationBarColor">@color/white</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/nightwhite</item>
+        <item name="materialButtonStyle">@style/MonsButton</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background</item>
         <item name="navigationViewStyle">@style/Widget.YourDemon.NavigationView</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:windowBackground">@color/background</item>
         <item name="windowNoTitle">true</item>
+
+        <!-- Smooth window transitions -->
+        <item name="android:windowAnimationStyle">@style/WindowAnim</item>
+    </style>
+
+    <style name="WindowAnim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
 
     <style name="MonsText" parent="android:TextAppearance.Material.Widget.TextView">
-        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/text_primary</item>
     </style>
 
     <style name="MonsButton" parent="Widget.Material3.Button">
-        <item name="android:fontFamily">@font/lato</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
-    <style name="Cards" parent="Widget.Material3.CardView.Filled">
-        <item name="cardBackgroundColor">@color/main</item>
-        <item name="cardCornerRadius">16dp</item>
+    <style name="Cards" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/border_light</item>
+        <item name="rippleColor">@color/ripple_overlay</item>
     </style>
 
     <style name="Widget.YourDemon.FAB" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="tint">@color/white</item>
     </style>
 
     <style name="Widget.YourDemon.NavigationView" parent="Widget.Material3.NavigationView">
-        <item name="android:background">@color/nightwhite</item>
-        <item name="enforceMaterialTheme">false</item>
+        <item name="android:background">@color/surface</item>
         <item name="itemIconTint">@color/menu_item</item>
         <item name="itemTextColor">@color/menu_item</item>
         <item name="itemShapeFillColor">@color/menu_item_shape</item>
     </style>
 
     <style name="ThemeOverlay.YourDemon.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="colorPrimary">@color/blue2</item>
-        <item name="android:background">@color/nightwhite</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
     </style>
 
     <style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
@@ -55,8 +89,8 @@
     </style>
 
     <style name="ThemeOverlay.App.Switch" parent="">
-        <item name="colorOnSurface">#b51565c0</item>
-        <item name="colorSecondary">@color/blue2</item>
+        <item name="colorOnSurface">@color/primary</item>
+        <item name="colorSecondary">@color/primary</item>
     </style>
 
     <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
@@ -67,7 +101,7 @@
     </style>
 
     <style name="ThemeOverlay.App.NavigationView" parent="">
-        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimary">@color/primary</item>
     </style>
 
     <style name="Theme.YourDemon.NoActionBar">
@@ -80,7 +114,7 @@
     <style name="Theme.YourDemon.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Theme.YourDemon.Splash" parent="Theme.Material3.Light.NoActionBar">
-        <item name="windowSplashScreenBackground">@color/nightwhite</item>
+        <item name="windowSplashScreenBackground">@color/primary_dark</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="postSplashScreenTheme">@style/Theme.YourDemon</item>
     </style>
@@ -93,4 +127,24 @@
         <item name="android:background">@drawable/white_rectangle</item>
     </style>
 
+    <!-- Shared professional text styles -->
+    <style name="Text.SectionTitle" parent="android:Widget.Material.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="Text.Body" parent="android:Widget.Material.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="Text.Mono" parent="android:Widget.Material.TextView">
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
 </resources>

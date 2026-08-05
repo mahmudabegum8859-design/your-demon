@@ -4,27 +4,29 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="center"
-    android:background="#3F51B5"
+    android:background="@drawable/bg_full_gradient"
     android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/slide_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/ok"
-        android:padding="30dp"
-        android:tint="@color/white"
-        android:background="@drawable/circle"
-        android:backgroundTint="#2196F3"
-        android:layout_gravity="center_horizontal"
-        />
+        android:tint="@color/primary"
+        android:padding="34dp"
+        android:background="@drawable/circle_white"
+        android:elevation="10dp"
+        android:layout_gravity="center_horizontal" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/slide_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="35dp"
+        android:layout_marginTop="32dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
         android:text="@string/finished_inst"
-        android:layout_margin="10dp"
         android:textColor="@color/white"
         android:gravity="center"/>
 
@@ -32,24 +34,29 @@
         android:id="@+id/slide_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
-        android:autoLink="all"
-        android:fontFamily="@font/google_sans"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="14dp"
         android:padding="10dp"
+        android:autoLink="all"
+        android:fontFamily="@font/montserrat"
         android:text="@string/inst_final_desc"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="#DDE7FF"
         android:textColorLink="@color/white"
-        android:textSize="20dp"
+        android:textSize="17sp"
         android:typeface="normal" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/slide_button"
+        style="@style/MonsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/laucnh"
         app:icon="@drawable/bolt"
-        android:backgroundTint="#2196F3"
-        app:cornerRadius="10dp"/>
-
+        app:iconTint="@color/primary"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/primary"
+        app:cornerRadius="16dp"/>
 </LinearLayout>

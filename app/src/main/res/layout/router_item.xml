@@ -1,82 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Cards"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:scrollbars="none"
-    android:layout_height="wrap_content">
-    <LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp">
+
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/router_item_img"
-            android:src="@drawable/circle"
-
-            android:layout_gravity="center"/>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:textSize="12dp"
-    android:textStyle="bold"
-    android:textIsSelectable="true"
-    android:id="@+id/router_item_ip"
-    android:fontFamily="@font/ubuntu"
-    android:layout_margin="5dp"
-    android:layout_gravity="center"
-    android:text="Ip adress"/>
-
-    <TextView
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_gravity="center"
-        android:maxLines="2"
-        android:id="@+id/router_item_title"
-    android:fontFamily="@font/ubuntu"
-    android:layout_margin="5dp"
-    android:text="Loading..."/>
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="12dp"
-        android:layout_gravity="center"
-        android:id="@+id/router_item_auth"
-        android:fontFamily="@font/ubuntu"
-        android:layout_margin="5dp"
-        android:text=""/>
-        <TextView
+        android:scrollbars="none">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="12dp"
-            android:layout_gravity="center"
-            android:id="@+id/router_item_ssid"
-            android:fontFamily="@font/ubuntu"
-            android:layout_margin="5dp"
-            android:text=""/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="12dp"
-            android:layout_gravity="center"
-            android:id="@+id/router_item_mac"
-            android:fontFamily="@font/ubuntu"
-            android:layout_margin="5dp"
-            android:text=""/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="12dp"
-            android:layout_gravity="center"
-            android:id="@+id/router_item_password"
-            android:fontFamily="@font/ubuntu"
-            android:layout_margin="5dp"
-            android:text=""/>
-    </LinearLayout>
-</HorizontalScrollView>
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_chip"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/router_item_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/router"
+                    app:tint="@color/accent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="IP"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:text="Ip adress"
+                    android:textColor="@color/text_primary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Title"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/montserrat"
+                    android:maxLines="2"
+                    android:text="Loading..."
+                    android:textColor="@color/text_primary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Auth"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_auth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/text_secondary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="SSID"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_ssid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/text_secondary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="MAC"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_mac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/text_secondary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Password"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/router_item_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/text_secondary"
+                    android:textIsSelectable="true"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</com.google.android.material.card.MaterialCardView>

@@ -1,77 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/dialog_bg"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_gradient"
     android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:padding="20dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-
-        android:lineSpacingExtra="5dp"
-        android:text="@string/router_scan_settings"
-        android:textSize="18dp"
-        android:layout_marginBottom="15dp"
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/module_title"
-        android:textStyle="bold" />
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/router_scan_settings"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-        android:lineSpacingExtra="5dp"
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/set_max_threads"
-        android:textSize="12dp"
-        />
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/setmaxthreads"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:hint="10-200">
+        android:layout_marginTop="8dp"
+        android:hint="10-200"
+        app:boxBackgroundColor="@color/input_bg"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/text_hint">
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="60dp" />
+            android:layout_height="52dp"
+            android:fontFamily="@font/montserrat"
+            android:inputType="number"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <TextView
+
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-
-        android:lineSpacingExtra="5dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/set_timeout_ms"
-        android:textSize="12dp"
-        />
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/setmaxtimeout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:hint="300-3000(ms)">
+        android:layout_marginTop="8dp"
+        android:hint="300-3000(ms)"
+        app:boxBackgroundColor="@color/input_bg"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/text_hint">
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="60dp" />
+            android:layout_height="52dp"
+            android:fontFamily="@font/montserrat"
+            android:inputType="number"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/save_router_settings"
-        android:text="@string/save"
-        android:layout_margin="10dp"
-        android:drawableLeft="@drawable/save"
-        android:drawableTint="@color/white"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_router_settings"
+        style="@style/MonsButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/primary"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:icon="@drawable/save"
+        app:iconTint="@color/white" />
 </LinearLayout>

@@ -1,35 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<com.airbnb.lottie.LottieAnimationView
-    android:layout_width="250dp"
-    android:layout_height="250dp"
-    app:lottie_loop="true"
-    app:lottie_autoPlay="true"
-    app:lottie_rawRes="@raw/install_module"/>
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/circle_gradient"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/store"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="12dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/install_module" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
         android:id="@+id/install_text"
-        android:text="Oops. You need to install 'modulename' to open this page!"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="@string/oops"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp" />
+
     <TextView
+        android:id="@+id/gorepo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gorepo"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_chip"
         android:clickable="true"
         android:focusable="true"
-        android:drawableTint="@color/blue2"
+        android:fontFamily="@font/montserrat"
         android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/go_to_repository"
-        android:textColor="@color/blue2"
-        android:textSize="16dp"
+        android:textColor="@color/primary"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:drawablePadding="5dp"
-        app:drawableLeftCompat="@drawable/cloud" />
+        app:drawableLeftCompat="@drawable/cloud"
+        app:drawableTint="@color/primary" />
+
 </LinearLayout>

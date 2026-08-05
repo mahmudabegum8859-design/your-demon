@@ -1,65 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:fillViewport="true">
 
-
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/circle_gradient"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/star"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/exploit_wizard"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:progress="10"
+            app:indicatorColor="@color/primary"
+            app:trackColor="@color/input_bg"
+            app:trackThickness="6dp" />
 
-        android:progress="10"/>
-<com.airbnb.lottie.LottieAnimationView
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:layout_gravity="center"
-    android:layout_marginTop="10dp"
-    app:lottie_rawRes="@raw/atom2"
-    app:lottie_speed="0.2"
-    app:lottie_autoPlay="true"
-    app:lottie_loop="true"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22dp"
-        android:text="@string/exploit_wizard"
-        android:gravity="center"
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/atom2"
+            app:lottie_speed="0.2" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@string/ew_welcome"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp" />
 
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:text="@string/ew_welcome"
-
-
-        android:layout_margin="10dp"
-        />
+        <ImageView
+            android:id="@+id/next_screen"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_gradient"
+            android:src="@drawable/next"
+            android:tint="@color/white" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/next_screen"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/next"
-        android:tint="@color/white"
-        android:layout_marginBottom="25dp"
-        android:layout_gravity="right"
-        android:background="@drawable/circle"
-        android:backgroundTint="@color/blue2"
-        android:layout_marginRight="15dp"/>
-</LinearLayout>
 </ScrollView>

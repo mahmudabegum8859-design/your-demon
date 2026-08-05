@@ -1,26 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- Brand / primary -->
+    <color name="primary">#3B82F6</color>
+    <color name="primary_dark">#2563EB</color>
+    <color name="primary_light">#93C5FD</color>
+    <color name="accent">#22D3EE</color>
+    <color name="accent_dark">#0891B2</color>
+    <color name="accent_light">#A5F3FC</color>
+
+    <!-- Semantic -->
+    <color name="success">#34D399</color>
+    <color name="success_dark">#059669</color>
+    <color name="warning">#FBBF24</color>
+    <color name="warning_dark">#D97706</color>
+    <color name="error">#F87171</color>
+    <color name="error_dark">#DC2626</color>
+    <color name="info">#60A5FA</color>
+
+    <!-- Surfaces (dark) -->
+    <color name="background">#0B1220</color>
+    <color name="surface">#111B2E</color>
+    <color name="surface_variant">#1B2940</color>
+    <color name="surface_muted">#16233B</color>
+    <color name="overlay">#F1F5F9</color>
+
+    <!-- Text -->
+    <color name="text_primary">#E6EDF7</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_hint">#64748B</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_accent">#062A30</color>
+
+    <!-- Borders -->
+    <color name="border">#27364F</color>
+    <color name="border_light">#1F2C42</color>
+
+    <!-- Legacy colors (kept for compatibility, mapped to new palette) -->
+    <color name="purple_200">#C4B5FD</color>
+    <color name="purple_500">#8B5CF6</color>
+    <color name="purple_700">#7C3AED</color>
+    <color name="teal_200">#5EEAD4</color>
+    <color name="teal_700">#14B8A6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="main">#FF2C2C2C</color>
-    <color name="blue">#FF1565C0</color>
-    <color name="blue2">#FF1E88E5</color>
-    <color name="yellow">#FFF9A825</color>
-    <color name="red">#FFC62828</color>
-    <color name="green">#FF2E7D32</color>
-    <color name="nightwhite">#FF121212</color>
-    <color name="nightrec">#FF303030</color>
-    <color name="grey">#FFBCBCBC</color>
-    <color name="textcolor">#FFFFFFFF</color>
-    <color name="colorAccent">#FF000000</color>
-    <color name="nightblack">#FFFFFFFF</color>
-    <color name="itemcolor">#FF404040</color>
-    <color name="logo">#FFFFFFFF</color>
-    <color name="console">#FFFFFFFF</color>
-    <color name="local_circle">#FF353535</color>
+    <color name="main">@color/surface</color>
+    <color name="blue">@color/primary</color>
+    <color name="blue2">@color/primary_dark</color>
+    <color name="yellow">@color/warning</color>
+    <color name="red">@color/error</color>
+    <color name="green">@color/success</color>
+    <color name="nightwhite">@color/background</color>
+    <color name="nightrec">@color/surface_variant</color>
+    <color name="grey">@color/text_secondary</color>
+    <color name="textcolor">@color/text_secondary</color>
+    <color name="colorAccent">@color/primary</color>
+    <color name="nightblack">@color/text_primary</color>
+    <color name="itemcolor">@color/surface_variant</color>
+    <color name="logo">@color/accent_light</color>
+    <color name="console">#05080F</color>
+    <color name="local_circle">@color/surface_variant</color>
+
+    <!-- Navigation menu -->
+    <color name="menu_item">@color/text_primary</color>
+    <color name="menu_item_shape">#333B82F6</color>
+    <color name="item_color">@color/text_secondary</color>
+    <color name="selected">#333B82F6</color>
+
+    <!-- Gradient stops -->
+    <color name="grad_start">#2563EB</color>
+    <color name="grad_mid">#3B82F6</color>
+    <color name="grad_end">#22D3EE</color>
+    <color name="grad_start_dark">#1E3A8A</color>
+    <color name="grad_end_dark">#0891B2</color>
+
+    <!-- Transparency helpers -->
+    <color name="ripple_overlay">#333B82F6</color>
 </resources>

@@ -1,50 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="20dp">
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Headline"
+    <LinearLayout
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/circle_gradient"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/local_network"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
         android:text="@string/arp_scan"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Cards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/ip_range">
+        android:layout_marginTop="20dp">
 
-        <EditText
-            android:id="@+id/range_input"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:padding="18dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/scan_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/start_scan" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ip_range"
+                app:boxBackgroundColor="@color/input_bg"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxStrokeColor="@color/primary"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/text_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/range_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/scan_btn"
+                style="@style/MonsButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/primary"
+                android:text="@string/start_scan"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/status_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/text_secondary"
         android:textSize="13sp" />
 
     <ListView
         android:id="@+id/result_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        android:layout_weight="1" />
-
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_chip"
+        android:divider="@color/border_light"
+        android:dividerHeight="1dp"
+        android:padding="4dp" />
 </LinearLayout>

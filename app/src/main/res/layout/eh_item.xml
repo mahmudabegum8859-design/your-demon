@@ -1,106 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="match_parent"
-    app:cardCornerRadius="8dp"
-    android:id="@+id/exploit_item"
-    android:clickable="true"
-    android:focusable="true"
-    android:layout_margin="5dp"
-    android:background="?attr/selectableItemBackground"
-    android:elevation="18dp"
-    app:strokeWidth="1px"
-    app:strokeColor="#DA515151"
-    android:layout_height="wrap_content">
-    <LinearLayout
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/exploit_item"
+        style="@style/Cards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="5dp"
-
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-            <ImageView
-                android:layout_width="5dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:tint="#4CAF50"
-                android:src="@drawable/rectangle"
-                />
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:clickable="true"
+        android:focusable="true">
 
         <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-            android:layout_weight="1"
-    android:layout_marginTop="2dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginStart="10dp"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/exploit_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Exploit_title"
-        android:textSize="15dp"
-        android:gravity="center"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/exploit_args"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="center"
-        android:layout_marginTop="3dp"
-
-        android:textSize="10dp"
-        android:text="Exploit args"
-        />
-
-
-</LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:gravity="center|right"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
 
                 <ImageView
-                    android:id="@+id/exploit_edit"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/edit"
-                    android:layout_margin="5dp" />
-                <ImageView
-                    android:id="@+id/exploit_delete"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/delete"
-                    android:layout_margin="5dp"
-                    />
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rectangle"
+                    android:tint="@color/success" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/exploit_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:text="Exploit_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/exploit_args"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:text="Exploit args"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|right"
+                    android:orientation="horizontal"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/exploit_edit"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/bg_chip"
+                        android:padding="6dp"
+                        android:src="@drawable/edit"
+                        android:tint="@color/primary" />
+
+                    <ImageView
+                        android:id="@+id/exploit_delete"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/bg_chip"
+                        android:padding="6dp"
+                        android:src="@drawable/delete"
+                        android:tint="@color/error" />
+                </LinearLayout>
             </LinearLayout>
-
-
-
-
-    </LinearLayout>
-</LinearLayout>
-
-</com.google.android.material.card.MaterialCardView>
-
-
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:layout_height="match_parent">
-<com.airbnb.lottie.LottieAnimationView
-    android:id="@+id/load_progress"
-    android:layout_width="250dp"
-    android:layout_height="250dp"
-    app:lottie_autoPlay="true"
-    app:lottie_loop="true"
-    app:lottie_rawRes="@raw/mirivan_cat"
-    android:layout_marginBottom="20dp"
-    />
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        app:trackCornerRadius="15dp"
-        android:id="@+id/prog_setup"/>
+    android:padding="20dp">
 
-    <TextView
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/load_progress"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/mirivan_cat" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/prog_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:indicatorColor="@color/primary"
+        app:trackColor="@color/input_bg"
+        app:trackThickness="6dp" />
+
+    <TextView
         android:id="@+id/setup_status"
-        android:fontFamily="@font/ubuntu"
-        android:text="Click to setup"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
         android:gravity="center"
-        android:visibility="invisible"
-        android:text="Welcome to Your Demon ⚡"
-        android:textSize="23dp"
-        android:textStyle="bold" />
+        android:text="Welcome to Your Demon"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
 </LinearLayout>

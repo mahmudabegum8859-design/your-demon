@@ -1,64 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="320dp"
-    android:background="@drawable/dialog_bg"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/title"
-        android:lineSpacingExtra="5dp"
-        android:text="@string/set_ranges"
-        android:textSize="18dp"
-        android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
-            android:layout_width="280dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/ranges_and_ips">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:background="@drawable/bg_card_gradient"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="@string/cancel"
-        android:id="@+id/rs_cancel"
-        android:layout_weight="1"
-        android:textAlignment="textEnd"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/blue2"
-        android:layout_marginRight="20dp"
-        android:textSize="16dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/set_ranges"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
         android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/ranges_and_ips"
+        app:boxBackgroundColor="@color/input_bg"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxStrokeColor="@color/primary"
+        app:hintTextColor="@color/text_hint">
 
-        android:text="OK"
-        android:id="@+id/rs_ok"
-        android:textAlignment="textEnd"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/blue2"
-        android:layout_marginRight="20dp"
-        android:textSize="16dp"
-        android:textStyle="bold" />
-</LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="top|start"
+            android:minHeight="80dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rs_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip"
+            android:fontFamily="@font/montserrat"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/cancel"
+            android:textColor="@color/error"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rs_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_chip"
+            android:fontFamily="@font/montserrat"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="OK"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </LinearLayout>

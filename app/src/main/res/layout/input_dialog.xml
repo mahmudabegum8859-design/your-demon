@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/dialog_bg"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_card_gradient"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/input_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-
-        android:lineSpacingExtra="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:lineSpacingExtra="3dp"
         android:text="Input title"
-        android:textSize="20dp"
-        android:id="@+id/input_title"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="16dp"
         android:hint="Enter value"
+        app:boxBackgroundColor="@color/input_bg"
+        app:boxCornerRadiusBottomEnd="14dp"
+        app:boxCornerRadiusBottomStart="14dp"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:boxStrokeColor="@color/primary"
         app:hintEnabled="true"
-        app:hintTextColor="#FF676262">
+        app:hintTextColor="@color/text_hint">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/getvalue"
             android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:fontFamily="@font/montserrat"
             android:maxLines="1"
-            android:layout_height="55dp" />
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
+        android:id="@+id/ok_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="OK"
-        android:id="@+id/ok_button"
-        android:gravity="right"
+        android:layout_marginTop="6dp"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/blue2"
-        android:textSize="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="right"
+        android:paddingRight="24dp"
+        android:text="OK"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
         android:textStyle="bold" />
 </LinearLayout>

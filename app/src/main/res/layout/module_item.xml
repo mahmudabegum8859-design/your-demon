@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,33 +6,40 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/item"
+        style="@style/Cards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:clickable="true"
-        android:elevation="6dp"
         android:focusable="true"
-        app:cardCornerRadius="8dp"
-        app:rippleColor="#54595959">
+        app:rippleColor="@color/ripple_overlay">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/module_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
                     android:text="Module name"
-                    android:textSize="22dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -41,21 +47,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="By OP-AMINUL-FF (OPX)"
-                    android:textSize="12dp"
-                    android:textStyle="italic" />`
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/module_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="Module description"
-                    android:textSize="15dp"
-                    android:layout_marginBottom="10dp"
-                  />`
-
-
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -69,15 +76,17 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:visibility="gone"
-                    app:indicatorColor="@color/blue2" />
+                    app:indicatorColor="@color/primary" />
 
                 <ImageView
                     android:id="@+id/module_install"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/download" />
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_chip"
+                    android:padding="6dp"
+                    android:src="@drawable/download"
+                    android:tint="@color/primary" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
 </RelativeLayout>

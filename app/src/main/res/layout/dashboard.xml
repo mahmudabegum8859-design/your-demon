@@ -4,105 +4,136 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".MainActivity">
-       <net.cachapa.expandablelayout.ExpandableLayout
-            android:layout_width="match_parent"
-            app:el_expanded="false"
-            android:id="@+id/expand_download"
-            android:layout_height="150dp">
+        android:paddingBottom="24dp"
+        tools:context=".Dashboard">
 
+        <!-- Download banner -->
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_expanded="false"
+            android:id="@+id/expand_download">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="115dp"
-                app:cardCornerRadius="15dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/download_card"
+                android:layout_margin="16dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:id="@+id/download_card"
-                android:layout_margin="20dp">
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/border_light"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
 
-                    android:layout_margin="20dp"
-                    >
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
                         android:id="@+id/img_download"
-                        android:src="@drawable/start_download"/>
+                        app:lottie_rawRes="@raw/update"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true" />
+
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/title_download"
-                            android:text="Приложению нужны дополнительные файлы для работы! Нажмите что бы начать загрузку!"
-                            android:layout_margin="10dp"
-                            android:fontFamily="@font/google_sans"/>
+                            android:fontFamily="@font/montserrat"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:text="@string/download_required" />
 
                         <com.google.android.material.progressindicator.LinearProgressIndicator
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="gone"
                             android:id="@+id/progress_download"
-                            app:trackCornerRadius="15dp"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            app:trackColor="#B5B5B5"
-                            app:indicatorColor="@color/grey"
-                            />
-
+                            android:layout_marginTop="10dp"
+                            app:trackCornerRadius="8dp"
+                            app:trackThickness="6dp"
+                            app:trackColor="@color/surface_variant"
+                            app:indicatorColor="@color/primary" />
                     </LinearLayout>
-
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </net.cachapa.expandablelayout.ExpandableLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:textSize="25dp"
-            android:text="@string/userhello"
-            android:id="@+id/user_hello"
-            android:fontFamily="@font/google_sans"
-            android:layout_marginStart="22dp"/>
 
-        <TextView
+        <!-- Greeting hero -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:fontFamily="@font/google_sans"
-            android:text="-----"
-            android:textAllCaps="false"
-            android:textSize="12dp"
-            android:visibility="gone"
-            android:textStyle="italic" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/primary"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/user_hello"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:text="@string/userhello" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="13sp"
+                    android:text="@string/hero_hint" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- License banner -->
         <net.cachapa.expandablelayout.ExpandableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:el_expanded="true"
             android:id="@+id/license_notif">
 
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="16dp"
                 android:visibility="gone"
                 app:cardBackgroundColor="#EC3C78"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
@@ -129,26 +160,24 @@
                         android:padding="5dp"
                         android:textColor="@color/white"
                         android:layout_weight="1"
-                        android:fontFamily="@font/google_sans"/>
-
+                        android:fontFamily="@font/montserrat"/>
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
         </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <!-- Magisk banner -->
         <net.cachapa.expandablelayout.ExpandableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:el_expanded="false"
             android:id="@+id/magisk_notif">
 
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-
+                android:layout_margin="16dp"
                 app:cardBackgroundColor="#F57F17"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
@@ -172,22 +201,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/magisk_notification"
-                        android:padding="5dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/google_sans"/>
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/magisk_notification"
+                            android:padding="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"/>
                     </LinearLayout>
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
         </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <!-- No root banner -->
         <net.cachapa.expandablelayout.ExpandableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,9 +226,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="16dp"
                 app:cardBackgroundColor="#FF6F00"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
@@ -223,42 +252,62 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/tour_mode"
-                        android:padding="5dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/google_sans"/>
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/tour_mode"
+                            android:padding="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"/>
                     </LinearLayout>
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
         </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <!-- News section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:textSize="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/news"
-            android:fontFamily="@font/google_sans"
-            android:layout_marginStart="22dp"/>
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/montserrat"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="20dp"
             android:layout_height="wrap_content">
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_news"
-                android:gravity="center"
-                android:layout_margin="20dp"
-                android:textSize="12dp"/>
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="center">
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:lottie_rawRes="@raw/gears"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_news"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>

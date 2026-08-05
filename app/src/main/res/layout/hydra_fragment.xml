@@ -2,173 +2,215 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_full_gradient"
+    android:fillViewport="true"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_gradient"
+            android:gravity="center">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/brute"
-                android:tint="@color/blue2" />
-
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/bolt"
+                app:tint="@color/white" />
         </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Hydra Brute Force"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hydra_target_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:hint="@string/target_ip_mask"
-            app:hintEnabled="true"
-            app:hintTextColor="#FF676262">
+            app:boxBackgroundColor="@color/input_bg"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/text_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hydra_target"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
-
+                android:layout_height="52dp"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/hydra_protocol"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="6dp"
                 android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@drawable/box"
-                android:gravity="center"
-                android:textColor="@color/textcolor" />
+                android:background="@drawable/bg_chip"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/hydra_port_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_weight="1"
-                android:layout_margin="5dp"
                 android:hint="@string/port_optional"
-                app:hintEnabled="true"
-                app:hintTextColor="#FF676262">
+                app:boxBackgroundColor="@color/input_bg"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxStrokeColor="@color/primary"
+                app:hintTextColor="@color/text_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/hydra_port"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:inputType="number" />
-
+                    android:layout_height="52dp"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="number"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hydra_username_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:hint="@string/username"
-            app:hintEnabled="true"
-            app:hintTextColor="#FF676262">
+            app:boxBackgroundColor="@color/input_bg"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/text_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hydra_username"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
-
+                android:layout_height="52dp"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hydra_password_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:hint="@string/password"
-            app:hintEnabled="true"
-            app:hintTextColor="#FF676262">
+            app:boxBackgroundColor="@color/input_bg"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/text_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hydra_password"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
-
+                android:layout_height="52dp"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hydra_threads_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:hint="@string/threads"
-            app:hintEnabled="true"
-            app:hintTextColor="#FF676262">
+            app:boxBackgroundColor="@color/input_bg"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/primary"
+            app:hintTextColor="@color/text_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hydra_threads"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="52dp"
+                android:fontFamily="@font/montserrat"
                 android:inputType="number"
-                android:text="4" />
-
+                android:text="4"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/hydra_run"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:background="@drawable/circle_gradient"
+                android:contentDescription="Run"
                 android:src="@drawable/run"
-                android:tint="@color/blue2"
-                android:background="@drawable/circle" />
-
+                app:tint="@color/white" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="260dp"
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:id="@+id/hydra_output"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#222222"
-                android:gravity="bottom"
-                android:padding="5dp"
+                android:background="@drawable/console"
+                android:fontFamily="monospace"
+                android:gravity="top|start"
+                android:padding="14dp"
                 android:scrollbars="vertical|horizontal"
                 android:textColor="@color/white"
                 android:textIsSelectable="true"
-                android:textSize="12dp" />
-
+                android:textSize="13sp" />
         </ScrollView>
-
     </LinearLayout>
-
 </ScrollView>

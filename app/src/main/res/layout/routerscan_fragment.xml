@@ -1,229 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_full_gradient"
+    android:orientation="vertical"
+    android:padding="20dp">
 
+    <LinearLayout
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        android:background="@drawable/circle_gradient"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/router"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="Router Scanner"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <net.cachapa.expandablelayout.ExpandableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:el_expanded="true"
-
-    android:id="@+id/routerpanel_expand">
-    <LinearLayout
+        android:id="@+id/routerpanel_expand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/nightwhite"
-        android:paddingBottom="10dp"
-        android:orientation="horizontal"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ip_ranges"
-                android:paddingStart="15dp"/>
-
+        app:el_expanded="true">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="180dp"
-            android:layout_height="80dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:scrollbars="vertical"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/nightrec"
-            android:id="@+id/router_ranges_card">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:textSize="11dp"
-                android:scrollbars = "vertical"
-                android:id="@+id/router_ranges_text"/>
-        </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ports"
-                android:paddingStart="15dp"/>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="75dp"
-            android:layout_height="80dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:scrollbars="vertical"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/nightrec"
-            android:id="@+id/router_port_card">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:textSize="11dp"
-                android:scrollbars = "vertical"
-                android:id="@+id/router_ports"/>
-        </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            style="@style/Cards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <ImageView
-                    android:id="@+id/router_save"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="5dp"
-                    android:src="@drawable/save"
-                    android:tint="@color/grey"
-                    />
-                <ImageView
-                    android:id="@+id/router_settings_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-
-                    android:src="@drawable/settings"
-                    android:tint="@color/grey"
-                    />
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/start_scanner"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/google_sans"
-                android:text="@string/start"
-                android:textSize="12dp"
-                app:icon="@drawable/run"
-                app:iconSize="12dp" />
-        </LinearLayout>
-    </LinearLayout>
-    </net.cachapa.expandablelayout.ExpandableLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/ip_ranges"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/router_ranges_card"
+                        style="@style/Cards"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:id="@+id/router_ranges_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="6dp"
+                            android:fontFamily="monospace"
+                            android:gravity="top|start"
+                            android:scrollbars="vertical"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/ports"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/router_port_card"
+                        style="@style/Cards"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:id="@+id/router_ports"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="6dp"
+                            android:fontFamily="monospace"
+                            android:gravity="top|start"
+                            android:scrollbars="vertical"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_chip"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/router_save"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/save"
+                                app:tint="@color/primary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_chip"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/router_settings_icon"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/admin_panel"
+                                app:tint="@color/accent" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/start_scanner"
+                        style="@style/MonsButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/primary"
+                        android:text="@string/start"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:icon="@drawable/run"
+                        app:iconSize="16dp"
+                        app:iconTint="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <LinearLayout
         android:id="@+id/router_toggle"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
         <ImageView
             android:id="@+id/router_toggle_img"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/nightwhite"
-            android:src="@drawable/arrow_down"
-            android:layout_gravity="center"
-            android:rotation="180"
-            android:tint="#606060"
-            />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow"
+            app:tint="@color/text_secondary" />
     </LinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="match_parent">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/routerscan_items"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_routers"
-        android:id="@+id/routerscan_empty"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        android:textSize="14sp"
-        android:textColor="@color/textcolor" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/routerscan_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/routerscan_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/no_routers"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:visibility="gone" />
     </FrameLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/ping_progressbar"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            app:indicatorColor="@color/blue2"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-
-            app:trackCornerRadius="5dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:indicatorColor="@color/primary"
+            app:trackColor="@color/input_bg"
+            app:trackThickness="6dp" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/roterscan_progressbar"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            app:indicatorColor="@color/blue"
-            app:trackCornerRadius="5dp" />
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="3dp"
-        android:layout_height="wrap_content">
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rs_threads"
-            android:layout_marginStart="5dp"
-            android:text="..."
-            android:layout_weight="1" />
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/circle"
-            android:tint="@color/green"/>
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rs_ok"
-            android:text="0"
-            android:layout_marginLeft="5dp"
-            />
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/circle"
-            android:layout_marginLeft="5dp"
-            android:tint="@color/red"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rs_pinged"
-            android:text="0"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            />
+            app:indicatorColor="@color/accent"
+            app:trackColor="@color/input_bg"
+            app:trackThickness="6dp" />
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/rs_threads"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:text="..."
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/circle_white"
+            app:tint="@color/success" />
+
+        <TextView
+            android:id="@+id/rs_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat"
+            android:text="0"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="14dp"
+            android:src="@drawable/circle_white"
+            app:tint="@color/error" />
+
+        <TextView
+            android:id="@+id/rs_pinged"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/montserrat"
+            android:text="0"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+    </LinearLayout>
 </LinearLayout>
