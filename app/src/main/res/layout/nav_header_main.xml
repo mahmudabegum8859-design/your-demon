@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:padding="26dp"
-                android:src="@drawable/icon" />
+                android:src="@drawable/app_logo" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="120dp"
