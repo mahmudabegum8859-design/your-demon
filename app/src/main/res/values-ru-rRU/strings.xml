@@ -209,7 +209,7 @@
     <string name="captured_be_here">Пойманные хендшейки будут здесь ! </string>
     <string name="list_of_available_ports">Список доступных портов </string>
     <string name="installing_module">Установка модуля… </string>
-    <string name="version_2_0_release">Версия 2.0 </string>
+    <string name="version_2_0_release">Версия 2.1.1 </string>
     <string name="detect_os">Определить ОС </string>
     <string name="detect_services">Обнаружение служб </string>
     <string name="fast_scan_less_ports">Быстрое сканирование  </string>

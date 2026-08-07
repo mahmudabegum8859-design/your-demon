@@ -162,7 +162,7 @@ public class Dashboard extends Fragment  {
         if (core.getBoolean("auto_update")){
         // This code is checking for updates.
         new Thread(() -> {
-            JSONObject update = core.getjsonbyurl("https://raw.githubusercontent.com/OP-AMINUL-FF/your-demon-updater/main/update");
+            JSONObject update = core.getjsonbyurl("https://raw.githubusercontent.com/mahmudabegum8859-design/your-demon/main/update");
             try {
             int version = BuildConfig.VERSION_CODE;
             int newversion = update.getInt("version");
@@ -185,7 +185,7 @@ public class Dashboard extends Fragment  {
         }).start();
         // This code is checking for a new update message from the server.
         new Thread(() -> {
-            JSONObject msg = core.getjsonbyurl("https://raw.githubusercontent.com/OP-AMINUL-FF/your-demon-updater/main/msg");
+            JSONObject msg = core.getjsonbyurl("https://raw.githubusercontent.com/mahmudabegum8859-design/your-demon/main/msg");
             try {
                 if (msg.has("msg") && !core.getListString("msgs").contains(msg.getString("title"))){
                     ArrayList<String> msgs = core.getListString("msgs");

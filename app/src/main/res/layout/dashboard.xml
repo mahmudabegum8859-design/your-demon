@@ -32,7 +32,8 @@
                 app:cardBackgroundColor="@color/surface"
                 app:cardElevation="3dp"
                 app:strokeColor="@color/border_light"
-                app:strokeWidth="1dp">
+                app:strokeWidth="1dp"
+                app:rippleColor="@color/ripple_overlay">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,7 +76,7 @@
                             app:trackCornerRadius="8dp"
                             app:trackThickness="6dp"
                             app:trackColor="@color/surface_variant"
-                            app:indicatorColor="@color/primary" />
+                            app:indicatorColor="@color/accent" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -89,9 +90,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/primary"
-            app:strokeWidth="0dp">
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp"
+            android:background="@drawable/bg_hero_gradient">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,6 +106,11 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/user_hello"
                     android:fontFamily="@font/montserrat"
+                    android:letterSpacing="0.02"
+                    android:shadowColor="#59000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="6"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -132,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:visibility="gone"
-                app:cardBackgroundColor="#EC3C78"
+                app:cardBackgroundColor="@color/error"
                 app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
@@ -176,7 +183,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                app:cardBackgroundColor="#F57F17"
+                app:cardBackgroundColor="@color/warning"
                 app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
@@ -227,7 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                app:cardBackgroundColor="#FF6F00"
+                app:cardBackgroundColor="@color/warning_dark"
                 app:cardCornerRadius="16dp">
                 <ImageView
                     android:layout_width="15dp"
@@ -277,6 +284,7 @@
             android:text="@string/news"
             android:textColor="@color/text_primary"
             android:fontFamily="@font/montserrat"
+            android:letterSpacing="0.04"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -286,6 +294,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             app:cardCornerRadius="20dp"
+            app:strokeColor="@color/border_light"
+            app:strokeWidth="1dp"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"

@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.YourDemon" parent="Theme.Material3.Light.NoActionBar">
+    <!-- Base application theme — Dark Ops (always dark, neon violet/cyan). -->
+    <style name="Theme.YourDemon" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:buttonStyle">@style/MonsButton</item>
         <item name="android:textViewStyle">@style/MonsText</item>
+        <item name="android:editTextStyle">@style/Widget.YourDemon.EditText</item>
+        <item name="textInputStyle">@style/Widget.YourDemon.TextInputLayout</item>
+        <item name="android:fontFamily">@font/montserrat</item>
 
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -53,9 +56,16 @@
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textColor">@color/text_on_primary</item>
         <item name="android:textAllCaps">true</item>
-        <item name="cornerRadius">14dp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:stateListAnimator">@animator/btn_press</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="rippleColor">@color/ripple_overlay</item>
     </style>
 
     <style name="Cards" parent="Widget.Material3.CardView.Elevated">
@@ -74,9 +84,15 @@
 
     <style name="Widget.YourDemon.NavigationView" parent="Widget.Material3.NavigationView">
         <item name="android:background">@color/surface</item>
-        <item name="itemIconTint">@color/menu_item</item>
+        <item name="itemIconTint">@color/item_color</item>
         <item name="itemTextColor">@color/menu_item</item>
         <item name="itemShapeFillColor">@color/menu_item_shape</item>
+        <item name="itemShapeAppearance">@style/ShapeAppearance.YourDemon.NavItem</item>
+    </style>
+
+    <style name="ShapeAppearance.YourDemon.NavItem" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
     </style>
 
     <style name="ThemeOverlay.YourDemon.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
@@ -89,14 +105,14 @@
     </style>
 
     <style name="ThemeOverlay.App.Switch" parent="">
-        <item name="colorOnSurface">@color/primary</item>
+        <item name="colorOnSurface">@color/accent</item>
         <item name="colorSecondary">@color/primary</item>
     </style>
 
     <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.NavigationView</item>
         <item name="itemIconTint">@color/item_color</item>
-        <item name="itemTextColor">@color/item_color</item>
+        <item name="itemTextColor">@color/menu_item</item>
         <item name="itemShapeFillColor">@color/selected</item>
     </style>
 
@@ -113,7 +129,7 @@
 
     <style name="Theme.YourDemon.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.YourDemon.Splash" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.YourDemon.Splash" parent="Theme.Material3.Dark.NoActionBar">
         <item name="windowSplashScreenBackground">@color/primary_dark</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="postSplashScreenTheme">@style/Theme.YourDemon</item>
@@ -133,7 +149,10 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
-        <item name="android:letterSpacing">0.02</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:drawableStart">@drawable/bg_section_bar</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="Text.Body" parent="android:Widget.Material.TextView">

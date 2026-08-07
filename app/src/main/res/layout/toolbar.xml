@@ -75,15 +75,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/home"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -110,15 +112,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/terminal"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -145,15 +149,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/wifi"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -180,15 +186,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/local_network"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -215,15 +223,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/website"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -250,15 +260,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/db"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -285,15 +297,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/cloud"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -320,15 +334,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/msf"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView
@@ -355,15 +371,17 @@
                         android:clickable="true"
                         android:elevation="2dp"
                         android:focusable="true"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp">
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:cardCornerRadius="16dp"
+                        app:strokeColor="#4D00E5FF"
+                        app:strokeWidth="1dp">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/manager"
-                            app:tint="@color/primary" />
+                            app:tint="@color/accent_light" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView

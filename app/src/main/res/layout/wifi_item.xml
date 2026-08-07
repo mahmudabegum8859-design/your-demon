@@ -88,7 +88,7 @@
                         android:layout_height="15dp"
                         android:layout_marginStart="6dp"
                         android:src="@drawable/store"
-                        android:tint="#606060"
+                        android:tint="@color/text_hint"
                         android:visibility="gone" />
                 </LinearLayout>
 

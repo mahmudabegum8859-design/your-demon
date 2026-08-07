@@ -7,20 +7,17 @@
     android:padding="20dp">
 
     <com.google.android.material.textview.MaterialTextView
+        style="@style/Text.SectionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/list_of_available_ports"
-        android:textColor="@color/text_primary"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="10dp"
+        android:text="@string/list_of_available_ports" />
 
     <TextView
         android:id="@+id/list_ports"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:background="@drawable/console"
         android:fontFamily="monospace"
         android:gravity="top|start"

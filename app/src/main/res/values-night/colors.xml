@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand / primary -->
-    <color name="primary">#3B82F6</color>
-    <color name="primary_dark">#2563EB</color>
-    <color name="primary_light">#93C5FD</color>
-    <color name="accent">#22D3EE</color>
-    <color name="accent_dark">#0891B2</color>
-    <color name="accent_light">#A5F3FC</color>
+    <!-- Brand / primary (Dark Ops neon palette) -->
+    <color name="primary">#8B5CF6</color>
+    <color name="primary_dark">#7C3AED</color>
+    <color name="primary_light">#A78BFA</color>
+    <color name="accent">#00E5FF</color>
+    <color name="accent_dark">#00B2D6</color>
+    <color name="accent_light">#7DF9FF</color>
 
     <!-- Semantic -->
-    <color name="success">#34D399</color>
-    <color name="success_dark">#059669</color>
-    <color name="warning">#FBBF24</color>
+    <color name="success">#22FF88</color>
+    <color name="success_dark">#0EA96C</color>
+    <color name="warning">#FFB020</color>
     <color name="warning_dark">#D97706</color>
-    <color name="error">#F87171</color>
-    <color name="error_dark">#DC2626</color>
-    <color name="info">#60A5FA</color>
+    <color name="error">#FF3B6B</color>
+    <color name="error_dark">#C0265A</color>
+    <color name="info">#38BDF8</color>
 
-    <!-- Surfaces (dark) -->
-    <color name="background">#0B1220</color>
-    <color name="surface">#111B2E</color>
-    <color name="surface_variant">#1B2940</color>
-    <color name="surface_muted">#16233B</color>
-    <color name="overlay">#F1F5F9</color>
+    <!-- Surfaces (always dark) -->
+    <color name="background">#05070F</color>
+    <color name="surface">#0D1330</color>
+    <color name="surface_variant">#131B3C</color>
+    <color name="surface_muted">#0A0F22</color>
+    <color name="overlay">#E6ECFF</color>
 
     <!-- Text -->
-    <color name="text_primary">#E6EDF7</color>
-    <color name="text_secondary">#94A3B8</color>
-    <color name="text_hint">#64748B</color>
+    <color name="text_primary">#E6ECFF</color>
+    <color name="text_secondary">#8FA0C9</color>
+    <color name="text_hint">#5C6FA3</color>
+    <color name="input_bg">#0B1128</color>
     <color name="text_on_primary">#FFFFFF</color>
-    <color name="text_on_accent">#062A30</color>
+    <color name="text_on_accent">#04252B</color>
 
     <!-- Borders -->
-    <color name="border">#27364F</color>
-    <color name="border_light">#1F2C42</color>
+    <color name="border">#22305A</color>
+    <color name="border_light">#1A2445</color>
 
     <!-- Legacy colors (kept for compatibility, mapped to new palette) -->
     <color name="purple_200">#C4B5FD</color>
@@ -60,19 +61,16 @@
     <color name="console">#05080F</color>
     <color name="local_circle">@color/surface_variant</color>
 
-    <!-- Navigation menu -->
-    <color name="menu_item">@color/text_primary</color>
-    <color name="menu_item_shape">#333B82F6</color>
-    <color name="item_color">@color/text_secondary</color>
-    <color name="selected">#333B82F6</color>
-
     <!-- Gradient stops -->
-    <color name="grad_start">#2563EB</color>
-    <color name="grad_mid">#3B82F6</color>
-    <color name="grad_end">#22D3EE</color>
-    <color name="grad_start_dark">#1E3A8A</color>
+    <color name="grad_start">#8B5CF6</color>
+    <color name="grad_mid">#5B6CF6</color>
+    <color name="grad_end">#00E5FF</color>
+    <color name="grad_start_dark">#4C1D95</color>
     <color name="grad_end_dark">#0891B2</color>
 
     <!-- Transparency helpers -->
-    <color name="ripple_overlay">#333B82F6</color>
+    <color name="ripple_overlay">#338B5CF6</color>
+    <color name="ripple_success">#6622FF88</color>
+    <color name="ripple_warning">#66FFB020</color>
+    <color name="ripple_error">#66FF3B6B</color>
 </resources>

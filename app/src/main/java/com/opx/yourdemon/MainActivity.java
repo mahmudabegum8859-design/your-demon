@@ -19,9 +19,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -108,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
     public Fragment tempfrag;
 
     public ExpandableLayout menu;
+    private View navIndicator;
+    private LinearLayout navBar;
+    private int navCount = 5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -200,8 +206,6 @@ public class MainActivity extends AppCompatActivity {
         }
         TextView logo = findViewById(R.id.main_logo);
 
-        ImageView menu_toggle = findViewById(R.id.menu_img);
-        menu_toggle.setOnClickListener(view -> menu.toggle());
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         logo.setOnClickListener(view -> {
@@ -212,37 +216,85 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MaterialCardView wifi = findViewById(R.id.menu_wifi);
-        MaterialCardView dashboard = findViewById(R.id.menu_dashboard);
-        MaterialCardView portal = findViewById(R.id.menu_portal);
-        MaterialCardView evilTwin = findViewById(R.id.menu_evil_twin);
-        wifi.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
-            fragmentManager.beginTransaction().replace(R.id.flContent, new Wifi()).commit();
-            menu.collapse();
-        });
-        dashboard.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
+        setupBottomNav(fragmentManager);
+    }
+
+    /**
+     * Wires the animated bottom navigation bar.
+     * Icon-only tabs: Home, WiFi, Portal, Evil Twin, Settings.
+     * A neon gradient pill slides + pops to the selected tab.
+     */
+    private void setupBottomNav(FragmentManager fragmentManager) {
+        navIndicator = findViewById(R.id.nav_indicator);
+        navBar = findViewById(R.id.bottom_nav_items);
+
+        LinearLayout dash = findViewById(R.id.nav_dashboard);
+        LinearLayout wifi = findViewById(R.id.nav_wifi);
+        LinearLayout portal = findViewById(R.id.nav_portal);
+        LinearLayout twin = findViewById(R.id.nav_twin);
+        LinearLayout settingsTab = findViewById(R.id.nav_settings);
+
+        dash.setOnClickListener(v -> {
+            setNavSelected(0);
             fragmentManager.beginTransaction().replace(R.id.flContent, new Dashboard()).commit();
-            menu.collapse();
         });
-        portal.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
+        wifi.setOnClickListener(v -> {
+            setNavSelected(1);
+            fragmentManager.beginTransaction().replace(R.id.flContent, new Wifi()).commit();
+        });
+        portal.setOnClickListener(v -> {
+            setNavSelected(2);
             fragmentManager.beginTransaction().replace(R.id.flContent, new CaptivePortalFragment()).commit();
-            menu.collapse();
         });
-        evilTwin.setOnClickListener(view -> {
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
-            account.setImageDrawable(getDrawable(R.drawable.account));
+        twin.setOnClickListener(v -> {
+            setNavSelected(3);
             fragmentManager.beginTransaction().replace(R.id.flContent, new EvilTwinFragment()).commit();
-            menu.collapse();
+        });
+        settingsTab.setOnClickListener(v -> {
+            setNavSelected(4);
+            ImageView settings = findViewById(R.id.settings_icon);
+            settings.setImageDrawable(getDrawable(R.drawable.settings));
+            fragmentManager.beginTransaction().replace(R.id.flContent, new Settings()).commit();
         });
 
+        // Start on Home
+        navBar.post(() -> setNavSelected(0));
+    }
 
+    /**
+     * Animates the indicator pill to the tab at the given index and updates selection state.
+     */
+    private void setNavSelected(int index) {
+        if (navIndicator == null || navBar == null) return;
+        int itemWidth = navBar.getWidth() / navCount;
+        if (itemWidth <= 0) return;
 
+        float targetX = itemWidth * index + (itemWidth - navIndicator.getWidth()) / 2f;
+
+        // Slide the pill
+        navIndicator.animate()
+                .translationX(targetX)
+                .setDuration(280)
+                .setInterpolator(new DecelerateInterpolator(2f))
+                .start();
+
+        // Bouncy pop
+        navIndicator.animate()
+                .scaleX(1.25f)
+                .scaleY(1.25f)
+                .setDuration(140)
+                .withEndAction(() -> navIndicator.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(180)
+                        .setInterpolator(new DecelerateInterpolator(1.5f))
+                        .start())
+                .start();
+
+        for (int i = 0; i < navBar.getChildCount(); i++) {
+            View child = navBar.getChildAt(i);
+            child.setSelected(i == index);
+        }
     }
 
 
@@ -485,9 +537,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (menu.isExpanded()){
-        super.onBackPressed();}else{
-            menu.expand();
-        }
+        super.onBackPressed();
     }
 }
