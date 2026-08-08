@@ -29,7 +29,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
@@ -39,7 +38,7 @@ import com.opx.yourdemon.exploit_hub.ExploitScreen;
 import com.opx.yourdemon.handshakes.HandshakeStorage;
 import com.opx.yourdemon.local_network.LocalMain;
 import com.opx.yourdemon.modules.ModulesFragment;
-import com.opx.yourdemon.router_scan.ThreadInterface;
+import com.opx.yourdemon.router_scan.RouterScanMain;
 import com.opx.yourdemon.utils.CheckMagiskNotif;
 import com.opx.yourdemon.utils.Core;
 import com.opx.yourdemon.utils.CustomCommand;
@@ -74,11 +73,7 @@ public class Dashboard extends Fragment  {
         context = getContext();
         activity = getActivity();
         core = new Core(context);
-        ImageView img_download = viewroot.findViewById(R.id.img_download);
-        ImageView img_close_license = viewroot.findViewById(R.id.license_close);
         ImageView img_close_magisk = viewroot.findViewById(R.id.magisk_close);
-        MaterialCardView download_card = viewroot.findViewById(R.id.download_card);
-        TextView title_download = viewroot.findViewById(R.id.title_download);
         TextView user_hello = viewroot.findViewById(R.id.user_hello);
         MaterialCardView accountOpen = viewroot.findViewById(R.id.account_open);
         accountOpen.setOnClickListener(view -> {
@@ -90,12 +85,8 @@ public class Dashboard extends Fragment  {
             }
         });
         checkpermission();
-        ExpandableLayout download_notif = viewroot.findViewById(R.id.expand_download);
-        ExpandableLayout license_notif = viewroot.findViewById(R.id.license_notif);
         ExpandableLayout magisk_notif = viewroot.findViewById(R.id.magisk_notif);
         ExpandableLayout no_root_notif = viewroot.findViewById(R.id.no_root_notif);
-        LinearProgressIndicator download_progress = viewroot.findViewById(R.id.progress_download);
-        img_close_license.setOnClickListener(view -> license_notif.collapse());
         img_close_magisk.setOnClickListener(view -> magisk_notif.collapse());
         ImageView no_root_close = viewroot.findViewById(R.id.no_root_close);
         no_root_close.setOnClickListener(view -> no_root_notif.collapse());
@@ -111,6 +102,19 @@ public class Dashboard extends Fragment  {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // Quick actions — attack modes (synced with the bottom nav indicator)
+        viewroot.findViewById(R.id.quick_wifi).setOnClickListener(v -> openTab(1));
+        viewroot.findViewById(R.id.quick_portal).setOnClickListener(v -> openTab(2));
+        viewroot.findViewById(R.id.quick_twin).setOnClickListener(v -> openTab(3));
+
+        // Toolkit shortcuts
+        viewroot.findViewById(R.id.quick_local).setOnClickListener(v -> openFragment(new LocalMain()));
+        viewroot.findViewById(R.id.quick_modules).setOnClickListener(v -> openFragment(new ModulesFragment()));
+        viewroot.findViewById(R.id.quick_router).setOnClickListener(v -> openFragment(new RouterScanMain()));
+        viewroot.findViewById(R.id.quick_exploits).setOnClickListener(v -> openFragment(new ExploitScreen()));
+        viewroot.findViewById(R.id.quick_handshakes).setOnClickListener(v -> openFragment(new HandshakeStorage()));
+        viewroot.findViewById(R.id.quick_core).setOnClickListener(v -> openFragment(new CoreManager()));
+
         viewroot.setOnTouchListener(new OnSwipeListener(context) {
             public void onSwipeTop() {core.closemenu(menu); }
             @SuppressLint("ClickableViewAccessibility")
@@ -219,6 +223,28 @@ public class Dashboard extends Fragment  {
 
 
         return viewroot;
+    }
+
+    /**
+     * Switches to one of the main bottom-nav tabs (0 = Dashboard, 1 = WiFi, 2 = Portal,
+     * 3 = Evil Twin, 4 = Settings) and moves the nav indicator to it.
+     */
+    private void openTab(int index) {
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).openTab(index);
+        }
+    }
+
+    /**
+     * Replaces the current fragment with another screen (toolkit shortcuts).
+     */
+    private void openFragment(Fragment fragment) {
+        if (getActivity() != null) {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flContent, fragment)
+                    .commit();
+        }
     }
 
     public boolean checkpermission() {

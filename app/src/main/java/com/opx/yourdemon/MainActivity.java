@@ -184,29 +184,43 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout twin = findViewById(R.id.nav_twin);
         LinearLayout settingsTab = findViewById(R.id.nav_settings);
 
-        dash.setOnClickListener(v -> {
-            setNavSelected(0);
-            fragmentManager.beginTransaction().replace(R.id.flContent, new Dashboard()).commit();
-        });
-        wifi.setOnClickListener(v -> {
-            setNavSelected(1);
-            fragmentManager.beginTransaction().replace(R.id.flContent, new Wifi()).commit();
-        });
-        portal.setOnClickListener(v -> {
-            setNavSelected(2);
-            fragmentManager.beginTransaction().replace(R.id.flContent, new CaptivePortalFragment()).commit();
-        });
-        twin.setOnClickListener(v -> {
-            setNavSelected(3);
-            fragmentManager.beginTransaction().replace(R.id.flContent, new EvilTwinFragment()).commit();
-        });
-        settingsTab.setOnClickListener(v -> {
-            setNavSelected(4);
-            fragmentManager.beginTransaction().replace(R.id.flContent, new Settings()).commit();
-        });
+        dash.setOnClickListener(v -> openTab(0));
+        wifi.setOnClickListener(v -> openTab(1));
+        portal.setOnClickListener(v -> openTab(2));
+        twin.setOnClickListener(v -> openTab(3));
+        settingsTab.setOnClickListener(v -> openTab(4));
 
         // Start on Home
         navBar.post(() -> setNavSelected(0));
+    }
+
+    /**
+     * Opens the main tab at the given index (0 = Dashboard, 1 = WiFi, 2 = Portal,
+     * 3 = Evil Twin, 4 = Settings) and animates the nav indicator to it.
+     * Public so other screens (e.g. Dashboard quick actions) can switch tabs.
+     */
+    public void openTab(int index) {
+        if (index < 0 || index > 4) return;
+        Fragment fragment;
+        switch (index) {
+            case 0:
+                fragment = new Dashboard();
+                break;
+            case 1:
+                fragment = new Wifi();
+                break;
+            case 2:
+                fragment = new CaptivePortalFragment();
+                break;
+            case 3:
+                fragment = new EvilTwinFragment();
+                break;
+            default:
+                fragment = new Settings();
+                break;
+        }
+        setNavSelected(index);
+        getSupportFragmentManager().beginTransaction().replace(R.id.flContent, fragment).commit();
     }
 
     /**

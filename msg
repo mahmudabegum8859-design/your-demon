@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.1 is here!","msg":"Bug fix release: navbar indicator no longer covers the icons, and Day Mode now actually works with a new premium light Molten Champagne theme. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.2 is here!","msg":"Completely redesigned Home screen: removed the old news feed and dead banners, now a premium Command Center with attack mode tiles and a toolkit grid. Enjoy!","enabled":false,"buttontext":"","url":""}
