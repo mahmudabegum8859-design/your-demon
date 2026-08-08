@@ -79,6 +79,15 @@ public class Account extends Fragment {
         MaterialCardView card = viewroot.findViewById(R.id.creditcard);
         ExpandableLayout menu = activity.findViewById(R.id.menu_expand);
         MaterialCardView coffee = viewroot.findViewById(R.id.coffee);
+        ImageView backBtn = viewroot.findViewById(R.id.account_back);
+        backBtn.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flContent, new Dashboard())
+                        .commit();
+            }
+        });
         web.setOnClickListener(view -> openlink("https://opaminulff.vercel.app/"));
         tg.setOnClickListener(view -> openlink("https://www.youtube.com/@OPAMINULFF"));
         pda.setOnClickListener(view -> openlink("https://github.com/OP-AMINUL-FF/your-demon"));

@@ -30,10 +30,10 @@
     </style>
 
     <!-- ============ BUTTONS (Dark Ops) ============ -->
-    <!-- Primary — violet→cyan gradient with glow edge -->
+    <!-- Primary — molten gold→ember gradient, deep espresso text -->
     <style name="Widget.YourDemon.Button.Primary" parent="MonsButton">
         <item name="android:background">@drawable/bg_btn_primary</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/text_on_primary</item>
         <item name="android:backgroundTint">@null</item>
     </style>
 

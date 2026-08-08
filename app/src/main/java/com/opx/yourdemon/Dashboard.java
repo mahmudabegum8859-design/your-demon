@@ -80,6 +80,15 @@ public class Dashboard extends Fragment  {
         MaterialCardView download_card = viewroot.findViewById(R.id.download_card);
         TextView title_download = viewroot.findViewById(R.id.title_download);
         TextView user_hello = viewroot.findViewById(R.id.user_hello);
+        MaterialCardView accountOpen = viewroot.findViewById(R.id.account_open);
+        accountOpen.setOnClickListener(view -> {
+            if (getActivity() != null) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flContent, new Account())
+                        .commit();
+            }
+        });
         checkpermission();
         ExpandableLayout download_notif = viewroot.findViewById(R.id.expand_download);
         ExpandableLayout license_notif = viewroot.findViewById(R.id.license_notif);

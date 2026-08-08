@@ -120,47 +120,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         core = new Core(this);
         int night = core.getInt("night");
-        ImageView account = findViewById(R.id.account_icon);
-        ImageView settings = findViewById(R.id.settings_icon);
          menu = findViewById(R.id.menu_expand);
-        account.setOnClickListener(view -> {
-            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flContent);
-            if (currentFragment instanceof Settings) {
-                menu.collapse();
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-            }
-            if (currentFragment instanceof Account) {
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                menu.collapse();
-                getSupportFragmentManager().beginTransaction().replace(R.id.flContent, tempfrag).commit();
-            }else{
-
-                menu.collapse();
-                account.setImageDrawable(getDrawable(R.drawable.close));
-                if (!(currentFragment instanceof Settings)) {
-                    tempfrag = getSupportFragmentManager().findFragmentById(R.id.flContent);}
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new Account()).commit();
-            }
-        });
-        settings.setOnClickListener(view -> {
-            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.flContent);
-            if (currentFragment instanceof Account) {
-                account.setImageDrawable(getDrawable(R.drawable.account));
-                menu.collapse();
-            }
-            if (currentFragment instanceof Settings) {
-                settings.setImageDrawable(getDrawable(R.drawable.settings));
-                menu.collapse();
-                getSupportFragmentManager().beginTransaction().replace(R.id.flContent, tempfrag).commit();
-            }else{
-                menu.collapse();
-                settings.setImageDrawable(getDrawable(R.drawable.close));
-                if (!(currentFragment instanceof Account)) {
-                tempfrag = getSupportFragmentManager().findFragmentById(R.id.flContent);}
-                getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new Settings()).commit();
-            }
-        });
         boolean hasRoot = core.checkroot();
         core.putBoolean("has_root", hasRoot);
         checkforusb();
@@ -204,17 +164,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         }
-        TextView logo = findViewById(R.id.main_logo);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
-
-        logo.setOnClickListener(view -> {
-            eggcounter++;
-            if (eggcounter >4){
-                logo.setText("Your Demon \uD83C\uDDFA\uD83C\uDDE6");
-                eggcounter = 0;
-            }
-        });
 
         setupBottomNav(fragmentManager);
     }
@@ -252,8 +202,6 @@ public class MainActivity extends AppCompatActivity {
         });
         settingsTab.setOnClickListener(v -> {
             setNavSelected(4);
-            ImageView settings = findViewById(R.id.settings_icon);
-            settings.setImageDrawable(getDrawable(R.drawable.settings));
             fragmentManager.beginTransaction().replace(R.id.flContent, new Settings()).commit();
         });
 

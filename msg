@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.1.1 is here!","msg":"New release: premium button UI, animated navigation bar and redesigned dialogs. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.0 is here!","msg":"Ultra-premium redesign: App Bar removed, full-bleed headerless UI, new Molten Obsidian gold theme, redesigned Settings and Account screens. Enjoy!","enabled":false,"buttontext":"","url":""}

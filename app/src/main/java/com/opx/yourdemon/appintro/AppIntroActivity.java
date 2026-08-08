@@ -31,8 +31,8 @@ public class AppIntroActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_intro);
-        getWindow().setStatusBarColor(Color.parseColor("#3F51B5"));
-        getWindow().setNavigationBarColor(Color.parseColor("#3F51B5"));
+        getWindow().setStatusBarColor(Color.parseColor("#0B0B0D"));
+        getWindow().setNavigationBarColor(Color.parseColor("#0B0B0D"));
         update = getIntent().getExtras().getBoolean("update");
         mPager = findViewById(R.id.intro_pager);
         prog = findViewById(R.id.slider_prog);

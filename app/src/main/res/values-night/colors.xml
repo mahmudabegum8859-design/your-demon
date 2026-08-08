@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand / primary (Dark Ops neon palette) -->
-    <color name="primary">#8B5CF6</color>
-    <color name="primary_dark">#7C3AED</color>
-    <color name="primary_light">#A78BFA</color>
-    <color name="accent">#00E5FF</color>
-    <color name="accent_dark">#00B2D6</color>
-    <color name="accent_light">#7DF9FF</color>
+    <!-- Brand / primary (Molten Obsidian — forged gold & ember) -->
+    <color name="primary">#F5A524</color>
+    <color name="primary_dark">#C87F00</color>
+    <color name="primary_light">#FFC94D</color>
+    <color name="accent">#FF6B2C</color>
+    <color name="accent_dark">#C2410C</color>
+    <color name="accent_light">#FFB27A</color>
 
     <!-- Semantic -->
-    <color name="success">#22FF88</color>
-    <color name="success_dark">#0EA96C</color>
-    <color name="warning">#FFB020</color>
-    <color name="warning_dark">#D97706</color>
-    <color name="error">#FF3B6B</color>
-    <color name="error_dark">#C0265A</color>
-    <color name="info">#38BDF8</color>
+    <color name="success">#2FD37E</color>
+    <color name="success_dark">#0E9F5F</color>
+    <color name="warning">#FFC53D</color>
+    <color name="warning_dark">#B45309</color>
+    <color name="error">#FF4D4F</color>
+    <color name="error_dark">#C01E2C</color>
+    <color name="info">#5BC0FF</color>
 
-    <!-- Surfaces (always dark) -->
-    <color name="background">#05070F</color>
-    <color name="surface">#0D1330</color>
-    <color name="surface_variant">#131B3C</color>
-    <color name="surface_muted">#0A0F22</color>
-    <color name="overlay">#E6ECFF</color>
+    <!-- Surfaces (obsidian, always dark) -->
+    <color name="background">#0B0B0D</color>
+    <color name="surface">#151517</color>
+    <color name="surface_variant">#1D1D22</color>
+    <color name="surface_muted">#101013</color>
+    <color name="overlay">#FFF6E0</color>
 
     <!-- Text -->
-    <color name="text_primary">#E6ECFF</color>
-    <color name="text_secondary">#8FA0C9</color>
-    <color name="text_hint">#5C6FA3</color>
-    <color name="input_bg">#0B1128</color>
-    <color name="text_on_primary">#FFFFFF</color>
-    <color name="text_on_accent">#04252B</color>
+    <color name="text_primary">#F7F1E3</color>
+    <color name="text_secondary">#A49B8B</color>
+    <color name="text_hint">#6E6658</color>
+    <color name="input_bg">#0E0E12</color>
+    <color name="text_on_primary">#211300</color>
+    <color name="text_on_accent">#211300</color>
 
     <!-- Borders -->
-    <color name="border">#22305A</color>
-    <color name="border_light">#1A2445</color>
+    <color name="border">#2C2C34</color>
+    <color name="border_light">#222229</color>
 
     <!-- Legacy colors (kept for compatibility, mapped to new palette) -->
-    <color name="purple_200">#C4B5FD</color>
-    <color name="purple_500">#8B5CF6</color>
-    <color name="purple_700">#7C3AED</color>
-    <color name="teal_200">#5EEAD4</color>
-    <color name="teal_700">#14B8A6</color>
+    <color name="purple_200">#F3CE8E</color>
+    <color name="purple_500">#F5A524</color>
+    <color name="purple_700">#C87F00</color>
+    <color name="teal_200">#7ED8B0</color>
+    <color name="teal_700">#0E9F5F</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main">@color/surface</color>
@@ -58,19 +58,19 @@
     <color name="nightblack">@color/text_primary</color>
     <color name="itemcolor">@color/surface_variant</color>
     <color name="logo">@color/accent_light</color>
-    <color name="console">#05080F</color>
+    <color name="console">#070705</color>
     <color name="local_circle">@color/surface_variant</color>
 
-    <!-- Gradient stops -->
-    <color name="grad_start">#8B5CF6</color>
-    <color name="grad_mid">#5B6CF6</color>
-    <color name="grad_end">#00E5FF</color>
-    <color name="grad_start_dark">#4C1D95</color>
-    <color name="grad_end_dark">#0891B2</color>
+    <!-- Gradient stops (molten gold -> ember) -->
+    <color name="grad_start">#FFC94D</color>
+    <color name="grad_mid">#F5A524</color>
+    <color name="grad_end">#FF6B2C</color>
+    <color name="grad_start_dark">#7A4E00</color>
+    <color name="grad_end_dark">#9A3412</color>
 
     <!-- Transparency helpers -->
-    <color name="ripple_overlay">#338B5CF6</color>
-    <color name="ripple_success">#6622FF88</color>
-    <color name="ripple_warning">#66FFB020</color>
-    <color name="ripple_error">#66FF3B6B</color>
+    <color name="ripple_overlay">#40F5A524</color>
+    <color name="ripple_success">#662FD37E</color>
+    <color name="ripple_warning">#66FFC53D</color>
+    <color name="ripple_error">#66FF4D4F</color>
 </resources>

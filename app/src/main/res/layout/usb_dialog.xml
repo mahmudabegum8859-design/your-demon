@@ -26,10 +26,10 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="#0D1330"
+            app:cardBackgroundColor="@color/surface"
             app:cardCornerRadius="65dp"
             app:cardElevation="10dp"
-            app:strokeColor="#338B5CF6"
+            app:strokeColor="#59F5A524"
             app:strokeWidth="1.5dp">
 
             <FrameLayout

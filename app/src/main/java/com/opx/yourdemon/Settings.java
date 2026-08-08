@@ -104,6 +104,11 @@ public class Settings extends Fragment {
         auto.setChecked(core.getBoolean("auto_update"));
         scanwlan.setText(getString(R.string.custom_scan) + core.getString("wlan_scan"));
         deauthwlan.setText(getString(R.string.custom_deauth) + core.getString("wlan_deauth"));
+        MaterialCardView accountRow = viewroot.findViewById(R.id.settings_account);
+        accountRow.setOnClickListener(view -> getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.flContent, new Account())
+                .commit());
 
         store.setOnClickListener(view -> {
             store.toggle();

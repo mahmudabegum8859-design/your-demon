@@ -42,7 +42,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/inst_final_desc"
         android:textAllCaps="false"
-        android:textColor="#DDE7FF"
+        android:textColor="#F0E8D6"
         android:textColorLink="@color/white"
         android:textSize="17sp"
         android:typeface="normal" />

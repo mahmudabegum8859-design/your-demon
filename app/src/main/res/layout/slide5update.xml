@@ -38,7 +38,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="14dp"
         android:padding="10dp"
-        android:textColor="#DDE7FF"
+        android:textColor="#F0E8D6"
         android:text="@string/thx_beta"
         android:textAllCaps="false"
         android:textSize="17sp"

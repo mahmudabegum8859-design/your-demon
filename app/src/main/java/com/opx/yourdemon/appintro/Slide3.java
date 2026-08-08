@@ -240,8 +240,8 @@ public class Slide3 extends Fragment {
     }
 
     public void changecolor(boolean red,LinearLayout layout){
-    int colorFrom = Color.parseColor("#2196F3");
-    int colorTo = Color.parseColor("#FFFF9800");
+    int colorFrom = Color.parseColor("#FFC94D");
+    int colorTo = Color.parseColor("#FF6B2C");
     ValueAnimator colorAnimation;
     if (red){
           colorAnimation  = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);}
