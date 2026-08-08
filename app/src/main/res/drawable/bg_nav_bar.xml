@@ -3,7 +3,7 @@
     <!-- Ambient glow strip behind the bar -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#26F5A524" />
+            <solid android:color="@color/nav_glow" />
             <corners android:topLeftRadius="28dp" android:topRightRadius="28dp" />
         </shape>
     </item>
@@ -13,8 +13,8 @@
         <shape android:shape="rectangle">
             <gradient
                 android:angle="270"
-                android:startColor="#E6171310"
-                android:endColor="#F20B0B0D" />
+                android:startColor="@color/nav_glass_start"
+                android:endColor="@color/nav_glass_end" />
             <corners android:topLeftRadius="28dp" android:topRightRadius="28dp" />
             <stroke
                 android:width="1dp"

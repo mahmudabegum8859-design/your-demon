@@ -68,6 +68,24 @@
     <color name="grad_start_dark">#7A4E00</color>
     <color name="grad_end_dark">#9A3412</color>
 
+    <!-- Theme-aware screen background gradient (dark values) -->
+    <color name="full_grad_start">#241409</color>
+    <color name="full_grad_mid">#120C08</color>
+    <color name="full_grad_end">#0B0B0D</color>
+
+    <!-- Theme-aware nav bar glass (dark values) -->
+    <color name="nav_glow">#26F5A524</color>
+    <color name="nav_glass_start">#E6171310</color>
+    <color name="nav_glass_end">#F20B0B0D</color>
+
+    <!-- Theme-aware dialog gradient (dark values) -->
+    <color name="dialog_grad_start">#241E16</color>
+    <color name="dialog_grad_mid">#16140F</color>
+    <color name="dialog_grad_end">#0E0D0A</color>
+
+    <!-- Theme-aware outline/badge text (light amber in dark mode) -->
+    <color name="outline_text">#FFB27A</color>
+
     <!-- Transparency helpers -->
     <color name="ripple_overlay">#40F5A524</color>
     <color name="ripple_success">#662FD37E</color>

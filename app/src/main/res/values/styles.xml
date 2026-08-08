@@ -37,10 +37,10 @@
         <item name="android:backgroundTint">@null</item>
     </style>
 
-    <!-- Outline / ghost — transparent with neon cyan border -->
+    <!-- Outline / ghost — transparent with gold border -->
     <style name="Widget.YourDemon.Button.Outline" parent="MonsButton">
         <item name="android:background">@drawable/bg_btn_outline</item>
-        <item name="android:textColor">@color/accent_light</item>
+        <item name="android:textColor">@color/outline_text</item>
         <item name="android:backgroundTint">@null</item>
     </style>
 
@@ -64,7 +64,7 @@
         <item name="android:fontFamily">monospace</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/accent_light</item>
+        <item name="android:textColor">@color/outline_text</item>
         <item name="android:letterSpacing">0.12</item>
         <item name="android:textAllCaps">true</item>
     </style>

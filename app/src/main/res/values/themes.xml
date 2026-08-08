@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme — Dark Ops (always dark, neon violet/cyan). -->
-    <style name="Theme.YourDemon" parent="Theme.Material3.Dark.NoActionBar">
+    <!-- Base application theme — Molten Champagne (light day mode, gold accents). -->
+    <style name="Theme.YourDemon" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:buttonStyle">@style/MonsButton</item>
         <item name="android:textViewStyle">@style/MonsText</item>
         <item name="android:editTextStyle">@style/Widget.YourDemon.EditText</item>

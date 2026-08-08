@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.0 is here!","msg":"Ultra-premium redesign: App Bar removed, full-bleed headerless UI, new Molten Obsidian gold theme, redesigned Settings and Account screens. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.1 is here!","msg":"Bug fix release: navbar indicator no longer covers the icons, and Day Mode now actually works with a new premium light Molten Champagne theme. Enjoy!","enabled":false,"buttontext":"","url":""}

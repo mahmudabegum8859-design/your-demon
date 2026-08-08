@@ -17,24 +17,24 @@
     <color name="error_dark">#C01E2C</color>
     <color name="info">#5BC0FF</color>
 
-    <!-- Surfaces (obsidian, always dark) -->
-    <color name="background">#0B0B0D</color>
-    <color name="surface">#151517</color>
-    <color name="surface_variant">#1D1D22</color>
-    <color name="surface_muted">#101013</color>
+    <!-- Surfaces (Molten Champagne — warm light day mode) -->
+    <color name="background">#F7F2E8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F1E9DA</color>
+    <color name="surface_muted">#EBE1CD</color>
     <color name="overlay">#FFF6E0</color>
 
     <!-- Text -->
-    <color name="text_primary">#F7F1E3</color>
-    <color name="text_secondary">#A49B8B</color>
-    <color name="text_hint">#6E6658</color>
-    <color name="input_bg">#0E0E12</color>
+    <color name="text_primary">#241C0F</color>
+    <color name="text_secondary">#6F6351</color>
+    <color name="text_hint">#A3957D</color>
+    <color name="input_bg">#FFFFFF</color>
     <color name="text_on_primary">#211300</color>
     <color name="text_on_accent">#211300</color>
 
     <!-- Borders -->
-    <color name="border">#2C2C34</color>
-    <color name="border_light">#222229</color>
+    <color name="border">#E5DAC5</color>
+    <color name="border_light">#ECDCC0</color>
 
     <!-- Legacy colors (kept for compatibility, mapped to new palette) -->
     <color name="purple_200">#F3CE8E</color>
@@ -67,6 +67,24 @@
     <color name="grad_end">#FF6B2C</color>
     <color name="grad_start_dark">#7A4E00</color>
     <color name="grad_end_dark">#9A3412</color>
+
+    <!-- Theme-aware screen background gradient (flips in values-night) -->
+    <color name="full_grad_start">#FBF7EF</color>
+    <color name="full_grad_mid">#F5EFE2</color>
+    <color name="full_grad_end">#EDE3CF</color>
+
+    <!-- Theme-aware nav bar glass (flips in values-night) -->
+    <color name="nav_glow">#1AF5A524</color>
+    <color name="nav_glass_start">#CCFFFFFF</color>
+    <color name="nav_glass_end">#E6F7F2E8</color>
+
+    <!-- Theme-aware dialog gradient (flips in values-night) -->
+    <color name="dialog_grad_start">#FFFFFF</color>
+    <color name="dialog_grad_mid">#FAF4E8</color>
+    <color name="dialog_grad_end">#F0E6D2</color>
+
+    <!-- Theme-aware outline/badge text (dark ember in light mode) -->
+    <color name="outline_text">#C2410C</color>
 
     <!-- Transparency helpers -->
     <color name="ripple_overlay">#40F5A524</color>

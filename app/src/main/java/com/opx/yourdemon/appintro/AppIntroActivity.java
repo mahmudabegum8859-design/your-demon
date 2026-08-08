@@ -1,7 +1,6 @@
 package com.opx.yourdemon.appintro;
 
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -31,8 +30,8 @@ public class AppIntroActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_intro);
-        getWindow().setStatusBarColor(Color.parseColor("#0B0B0D"));
-        getWindow().setNavigationBarColor(Color.parseColor("#0B0B0D"));
+        getWindow().setStatusBarColor(getColor(R.color.background));
+        getWindow().setNavigationBarColor(getColor(R.color.background));
         update = getIntent().getExtras().getBoolean("update");
         mPager = findViewById(R.id.intro_pager);
         prog = findViewById(R.id.slider_prog);
