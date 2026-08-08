@@ -85,6 +85,7 @@ import com.opx.yourdemon.utils.Core;
 import com.opx.yourdemon.utils.CustomCommand;
 import com.opx.yourdemon.utils.TaskRunner;
 import com.opx.yourdemon.utils.OnSwipeListener;
+import com.opx.yourdemon.utils.LogUtils;
 import com.opx.yourdemon.wifi.Wifi;
 import com.opx.yourdemon.wifi.utils.GetInterfaces;
 
@@ -117,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LogUtils.init(this);
+        LogUtils.log("MainActivity", "onCreate");
         setContentView(R.layout.activity_main);
         core = new Core(this);
         int night = core.getInt("night");
@@ -201,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void openTab(int index) {
         if (index < 0 || index > 4) return;
+        LogUtils.log("NAV", "openTab -> " + index);
         Fragment fragment;
         switch (index) {
             case 0:

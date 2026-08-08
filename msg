@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.2 is here!","msg":"Completely redesigned Home screen: removed the old news feed and dead banners, now a premium Command Center with attack mode tiles and a toolkit grid. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.3 is here!","msg":"New crash & event logging system: every crash and app event is now saved automatically to /storage/emulated/0/your-demon/ as .txt files (app_log.txt + crash_log.txt). The folder is created automatically if missing. Enjoy!","enabled":false,"buttontext":"","url":""}
