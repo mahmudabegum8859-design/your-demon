@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.3 is here!","msg":"New crash & event logging system: every crash and app event is now saved automatically to /storage/emulated/0/your-demon/ as .txt files (app_log.txt + crash_log.txt). The folder is created automatically if missing. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.4 is here!","msg":"Fixed the swipe gesture crash (NullPointerException on fling) that could close the app on some screens. Swiping now works smoothly everywhere. Enjoy!","enabled":false,"buttontext":"","url":""}

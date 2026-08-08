@@ -16,6 +16,7 @@ public class OnSwipeListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        if (event == null) return false;
         return gestureDetector.onTouchEvent(event);
     }
 
@@ -31,6 +32,7 @@ public class OnSwipeListener implements View.OnTouchListener {
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            if (e1 == null || e2 == null) return false;
             float diffY = e2.getY() - e1.getY();
             float diffX = e2.getX() - e1.getX();
             if (Math.abs(diffX) > Math.abs(diffY)) {
