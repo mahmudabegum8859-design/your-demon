@@ -24,14 +24,14 @@
             app:cardCornerRadius="24dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@android:color/transparent"
-            app:strokeWidth="0dp"
-            android:background="@drawable/bg_hero_gradient">
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:background="@drawable/bg_hero_gradient">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                             android:fontFamily="@font/montserrat"
                             android:letterSpacing="0.14"
                             android:text="SYSTEM READY"
-                            android:textColor="@color/text_on_primary"
+                            android:textColor="@color/hero_text"
                             android:textSize="10sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -90,7 +90,7 @@
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@drawable/account"
-                            android:tint="@color/text_on_primary"
+                            android:tint="@color/hero_text"
                             android:contentDescription="@string/account" />
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
@@ -102,7 +102,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/montserrat"
                     android:letterSpacing="0.02"
-                    android:textColor="@color/text_on_primary"
+                    android:textColor="@color/hero_text"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:text="@string/userhello" />
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/montserrat"
-                    android:textColor="#B3211300"
+                    android:textColor="@color/hero_text_soft"
                     android:textSize="13sp"
                     android:text="@string/hero_hint" />
             </LinearLayout>
@@ -775,6 +775,136 @@
                             android:layout_marginTop="2dp"
                             android:fontFamily="@font/montserrat"
                             android:text="Core packages"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Row 4 (conditional — visible when the related Settings toggle is ON) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quick_saved_wifi"
+                style="@style/Cards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/wifi"
+                            android:tint="@color/primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Saved WiFi"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Password history"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="1dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quick_mac_changer"
+                style="@style/Cards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_chip"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/hidemac"
+                            android:tint="@color/primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="MAC Changer"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Spoof &amp; hide MAC"
                             android:textColor="@color/text_secondary"
                             android:textSize="11sp" />
                     </LinearLayout>

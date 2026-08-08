@@ -39,6 +39,8 @@ import com.opx.yourdemon.handshakes.HandshakeStorage;
 import com.opx.yourdemon.local_network.LocalMain;
 import com.opx.yourdemon.modules.ModulesFragment;
 import com.opx.yourdemon.router_scan.RouterScanMain;
+import com.opx.yourdemon.wifi_password_history.WifiPasswordHistoryFragment;
+import com.opx.yourdemon.mac_changer.MacChangerFragment;
 import com.opx.yourdemon.utils.CheckMagiskNotif;
 import com.opx.yourdemon.utils.Core;
 import com.opx.yourdemon.utils.CustomCommand;
@@ -114,6 +116,14 @@ public class Dashboard extends Fragment  {
         viewroot.findViewById(R.id.quick_exploits).setOnClickListener(v -> openFragment(new ExploitScreen()));
         viewroot.findViewById(R.id.quick_handshakes).setOnClickListener(v -> openFragment(new HandshakeStorage()));
         viewroot.findViewById(R.id.quick_core).setOnClickListener(v -> openFragment(new CoreManager()));
+
+        // Conditional toolkit shortcuts — shown when the matching Settings toggle is ON
+        View savedWifiTile = viewroot.findViewById(R.id.quick_saved_wifi);
+        View macChangerTile = viewroot.findViewById(R.id.quick_mac_changer);
+        if (core.getBoolean("saveHistory")) savedWifiTile.setVisibility(View.VISIBLE);
+        if (core.getBoolean("hide")) macChangerTile.setVisibility(View.VISIBLE);
+        savedWifiTile.setOnClickListener(v -> openFragment(new WifiPasswordHistoryFragment()));
+        macChangerTile.setOnClickListener(v -> openFragment(new MacChangerFragment()));
 
         viewroot.setOnTouchListener(new OnSwipeListener(context) {
             public void onSwipeTop() {core.closemenu(menu); }

@@ -32,6 +32,10 @@
     <color name="text_on_primary">#211300</color>
     <color name="text_on_accent">#211300</color>
 
+    <!-- Hero card text (light cream on the dark night gradient) -->
+    <color name="hero_text">#F7F1E3</color>
+    <color name="hero_text_soft">#D9F7F1E3</color>
+
     <!-- Borders -->
     <color name="border">#2C2C34</color>
     <color name="border_light">#222229</color>

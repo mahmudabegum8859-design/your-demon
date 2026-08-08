@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.4 is here!","msg":"Fixed the swipe gesture crash (NullPointerException on fling) that could close the app on some screens. Swiping now works smoothly everywhere. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.5 is here!","msg":"Home screen upgraded: new Saved WiFi and MAC Changer shortcuts appear in Toolkit when their Settings are ON, and the profile card is now fully visible in Dark Mode with a new premium night gradient. Enjoy!","enabled":false,"buttontext":"","url":""}
