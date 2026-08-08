@@ -45,7 +45,7 @@
                         android:layout_width="54dp"
                         android:layout_height="54dp"
                         android:src="@drawable/devices_other"
-                        app:tint="@color/white" />
+                        app:tint="@color/text_on_primary" />
                 </LinearLayout>
 
                 <TextView

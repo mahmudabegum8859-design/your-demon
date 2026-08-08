@@ -1,1 +1,1 @@
-{"title":"Your Demon v2.2.5 is here!","msg":"Home screen upgraded: new Saved WiFi and MAC Changer shortcuts appear in Toolkit when their Settings are ON, and the profile card is now fully visible in Dark Mode with a new premium night gradient. Enjoy!","enabled":false,"buttontext":"","url":""}
+{"title":"Your Demon v2.2.6 is here!","msg":"Big redesign update: new premium WiFi screen header, redesigned Update screen, intro slides now fully visible in Day Mode, and gold icon contrast fixed across all 30+ tool screens. Enjoy!","enabled":false,"buttontext":"","url":""}

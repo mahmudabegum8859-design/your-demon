@@ -36,6 +36,10 @@
     <color name="hero_text">#F7F1E3</color>
     <color name="hero_text_soft">#D9F7F1E3</color>
 
+    <!-- Intro slide text (light cream on the dark night gradient) -->
+    <color name="slide_text">#F7F1E3</color>
+    <color name="slide_text_soft">#A49B8B</color>
+
     <!-- Borders -->
     <color name="border">#2C2C34</color>
     <color name="border_light">#222229</color>

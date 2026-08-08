@@ -23,7 +23,7 @@
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/bolt"
-                app:tint="@color/white" />
+                app:tint="@color/text_on_primary" />
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
@@ -191,7 +191,7 @@
                 android:background="@drawable/circle_gradient"
                 android:contentDescription="Run"
                 android:src="@drawable/run"
-                app:tint="@color/white" />
+                app:tint="@color/text_on_primary" />
         </LinearLayout>
 
         <ScrollView

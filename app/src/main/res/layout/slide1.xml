@@ -27,7 +27,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:text="@string/hi"
-        android:textColor="@color/white"
+        android:textColor="@color/slide_text"
         android:gravity="center"/>
 
     <com.google.android.material.textview.MaterialTextView
@@ -41,7 +41,7 @@
         android:text="@string/thanks"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="#F0E8D6"
+        android:textColor="@color/slide_text_soft"
         android:textSize="17sp"
         android:fontFamily="@font/montserrat"
         android:typeface="normal" />
@@ -55,7 +55,7 @@
         android:text="@string/go"
         app:icon="@drawable/bolt"
         app:iconTint="@color/primary"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/primary"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/text_on_primary"
         app:cornerRadius="16dp"/>
 </LinearLayout>

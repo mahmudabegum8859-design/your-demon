@@ -27,7 +27,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:text="@string/update"
-        android:textColor="@color/white"
+        android:textColor="@color/slide_text"
         android:gravity="center"/>
 
     <com.google.android.material.textview.MaterialTextView
@@ -38,7 +38,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="14dp"
         android:padding="10dp"
-        android:textColor="#F0E8D6"
+        android:textColor="@color/slide_text_soft"
         android:text="@string/thx_beta"
         android:textAllCaps="false"
         android:textSize="17sp"
@@ -54,7 +54,7 @@
         android:text="Обновить"
         app:icon="@drawable/bolt"
         app:iconTint="@color/primary"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/primary"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/text_on_primary"
         app:cornerRadius="16dp"/>
 </LinearLayout>

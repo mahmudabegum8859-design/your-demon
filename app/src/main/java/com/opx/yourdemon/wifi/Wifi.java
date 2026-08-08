@@ -82,6 +82,7 @@ public class Wifi extends Fragment {
         tryagain.setOnClickListener(view1 -> {
             scan();
         });
+        view.findViewById(R.id.wifi_refresh).setOnClickListener(v -> scan());
         refresh.setOnRefreshListener(this::scan);
         if (activity !=null){
         mRecyclerView.setLayoutManager(new LinearLayoutManager(activity));}

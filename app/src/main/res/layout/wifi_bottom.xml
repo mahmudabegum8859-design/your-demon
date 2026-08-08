@@ -40,7 +40,7 @@
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:src="@drawable/wifi"
-                app:tint="@color/white" />
+                app:tint="@color/text_on_primary" />
         </LinearLayout>
     </RelativeLayout>
 

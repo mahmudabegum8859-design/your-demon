@@ -18,7 +18,7 @@
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:src="@drawable/router"
-            app:tint="@color/white" />
+            app:tint="@color/text_on_primary" />
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView

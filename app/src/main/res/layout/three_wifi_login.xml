@@ -25,7 +25,7 @@
                 android:layout_height="26dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/wifi3"
-                app:tint="@color/white" />
+                app:tint="@color/text_on_primary" />
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView

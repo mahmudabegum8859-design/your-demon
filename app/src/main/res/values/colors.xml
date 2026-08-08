@@ -36,6 +36,10 @@
     <color name="hero_text">#211300</color>
     <color name="hero_text_soft">#A8211300</color>
 
+    <!-- Intro slide text (flips in values-night) -->
+    <color name="slide_text">#211300</color>
+    <color name="slide_text_soft">#6F6351</color>
+
     <!-- Borders -->
     <color name="border">#E5DAC5</color>
     <color name="border_light">#ECDCC0</color>

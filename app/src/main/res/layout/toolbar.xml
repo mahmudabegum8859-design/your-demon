@@ -20,7 +20,7 @@
             android:layout_height="28dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/menu"
-            app:tint="@color/white" />
+            app:tint="@color/text_on_primary" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/main_logo"
@@ -41,7 +41,7 @@
             android:layout_height="28dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/account"
-            app:tint="@color/white" />
+            app:tint="@color/text_on_primary" />
     </LinearLayout>
 
     <net.cachapa.expandablelayout.ExpandableLayout

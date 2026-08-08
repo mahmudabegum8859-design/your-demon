@@ -19,7 +19,7 @@
             android:layout_height="26dp"
             android:importantForAccessibility="no"
             android:src="@drawable/local_network"
-            app:tint="@color/white" />
+            app:tint="@color/text_on_primary" />
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
