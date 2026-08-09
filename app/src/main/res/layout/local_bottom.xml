@@ -7,6 +7,18 @@
     android:paddingBottom="20dp"
     android:layout_height="wrap_content">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="48dp"
         android:layout_height="5dp"
@@ -336,4 +348,6 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </net.cachapa.expandablelayout.ExpandableLayout>
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

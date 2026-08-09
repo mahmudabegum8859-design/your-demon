@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -138,6 +139,15 @@ public class WiFI_Adapter extends RecyclerView.Adapter<WiFI_Adapter.ViewHolder> 
         boolean three_wifi = selected.getOK();
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.AppBottomSheetDialogTheme);
         bottomSheetDialog.setContentView(R.layout.wifi_bottom);
+        // Keep the sheet fully expanded (never clipped at the top) and let the NestedScrollView handle overflow.
+        bottomSheetDialog.setOnShowListener(dialog -> {
+            View sheet = ((BottomSheetDialog) dialog).findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            if (sheet != null) {
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(sheet);
+                behavior.setSkipCollapsed(true);
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
         TextView name1 = bottomSheetDialog.findViewById(R.id.wifi_name_bottom);
         ImageView wifiimg = bottomSheetDialog.findViewById(R.id.dialog_wifi_img);
 
@@ -408,7 +418,7 @@ public class WiFI_Adapter extends RecyclerView.Adapter<WiFI_Adapter.ViewHolder> 
                                 exp_result.expand();
                                 if (result.getLon() != null) {
                                     res1.setText(R.string.ooops_sh);
-                                    res2.setText(R.string.error_interface + wlan_listen + R.string.dev_issue);
+                                    res2.setText(core.str("error_interface") + wlan_listen + core.str("dev_issue"));
                                 } else {
                                     res1.setText(R.string.ooops_sh);
                                     res2.setText(R.string.not_vuln_pixie);

@@ -30,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
@@ -207,6 +208,15 @@ public class LocalAdapter extends RecyclerView.Adapter<LocalAdapter.ViewHolder> 
         boolean isrouter = pos == 0;
         localdialog = new BottomSheetDialog(context, R.style.AppBottomSheetDialogTheme);
         localdialog.setContentView(R.layout.local_bottom);
+        // Keep the sheet fully expanded (never clipped at the top) and let the NestedScrollView handle overflow.
+        localdialog.setOnShowListener(dialog -> {
+            View sheet = ((BottomSheetDialog) dialog).findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            if (sheet != null) {
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(sheet);
+                behavior.setSkipCollapsed(true);
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
         dialogip = ip;
         ImageView device_img = localdialog.findViewById(R.id.device_img);
         TextView ip_view = localdialog.findViewById(R.id.device_ip);

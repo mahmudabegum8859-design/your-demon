@@ -40,6 +40,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -271,6 +272,15 @@ public class MainActivity extends AppCompatActivity {
     public void usbdialog(){
         final BottomSheetDialog usbdialog = new BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme);
         usbdialog.setContentView(R.layout.usb_dialog);
+        // Keep the sheet fully expanded (never clipped at the top) and let the NestedScrollView handle overflow.
+        usbdialog.setOnShowListener(dialog -> {
+            View sheet = ((BottomSheetDialog) dialog).findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            if (sheet != null) {
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(sheet);
+                behavior.setSkipCollapsed(true);
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
         TextView info = usbdialog.findViewById(R.id.usb_info);
         Button changelisten = usbdialog.findViewById(R.id.change_listen);
         Button changedeauth = usbdialog.findViewById(R.id.change_deauth);
