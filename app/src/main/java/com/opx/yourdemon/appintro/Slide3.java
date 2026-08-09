@@ -34,6 +34,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.opx.yourdemon.BuildConfig;
 import com.opx.yourdemon.Dashboard;
 import com.opx.yourdemon.MainActivity;
 import com.opx.yourdemon.R;
@@ -41,6 +42,8 @@ import com.opx.yourdemon.utils.CheckDir;
 import com.opx.yourdemon.utils.Core;
 import com.opx.yourdemon.utils.CustomCommand;
 import com.opx.yourdemon.utils.TaskRunner;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -100,11 +103,19 @@ public class Slide3 extends Fragment {
             new Thread(() -> {
                 clear();
                 boolean core_ok;
-                if (core.is64Bit()){
-                    core_ok = download("https://github.com/OP-AMINUL-FF/your-demon-chroot/releases/download/v1.0/core64.tar.gz", "yourdemon.tar.gz", progress_status, progress);
-                }else {
-                    core_ok = download("https://github.com/OP-AMINUL-FF/your-demon-chroot/releases/download/v1.0/core32.tar.gz", "yourdemon.tar.gz", progress_status, progress);
+                // Resolve the per-architecture chroot from the update manifest (arm64/armv7/x86_64/x86),
+                // falling back to the current repo release when the manifest is unreachable.
+                String chrootUrl = null;
+                try {
+                    JSONObject update = core.getjsonbyurl("https://raw.githubusercontent.com/mahmudabegum8859-design/your-demon/main/update");
+                    if (update.has("chroot_base")) {
+                        chrootUrl = update.getString("chroot_base") + core.chrootName();
+                    }
+                } catch (Exception ignored) { }
+                if (chrootUrl == null) {
+                    chrootUrl = "https://github.com/mahmudabegum8859-design/your-demon/releases/download/v" + BuildConfig.VERSION_NAME + "/" + core.chrootName();
                 }
+                core_ok = download(chrootUrl, "yourdemon.tar.gz", progress_status, progress);
                 if (core_ok) {
                     installLocal(getDownloadPath() + "yourdemon.tar.gz");
                 } else {

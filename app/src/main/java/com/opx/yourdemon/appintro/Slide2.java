@@ -2,6 +2,7 @@ package com.opx.yourdemon.appintro;
 
 
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.animation.ArgbEvaluator;
@@ -12,6 +13,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -85,6 +87,14 @@ public class Slide2 extends Fragment {
             ActivityCompat.requestPermissions(
                     activity,
                     new String[]{WRITE_EXTERNAL_STORAGE},
+                    123
+            );
+        }
+        // Android 13+ needs the notification permission requested at runtime
+        if (Build.VERSION.SDK_INT >= 33 && context.checkSelfPermission(POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    activity,
+                    new String[]{POST_NOTIFICATIONS},
                     123
             );
         }

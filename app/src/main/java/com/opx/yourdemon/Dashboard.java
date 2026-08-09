@@ -2,6 +2,7 @@ package com.opx.yourdemon;
 
 
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.annotation.SuppressLint;
@@ -193,7 +194,14 @@ public class Dashboard extends Fragment  {
                 activity.runOnUiThread(() -> {
                     try {
                         if (!update.getBoolean("isfix")){
-                        updatedialog(update.getString("name"),update.getString("apk_url"),update.getString("chroot32_url"),update.getString("chroot64_url"));}
+                            // Resolve the chroot for the device architecture (arm64/armv7/x86_64/x86).
+                            String chrootUrl;
+                            if (update.has("chroot_base")) {
+                                chrootUrl = update.getString("chroot_base") + core.chrootName();
+                            } else {
+                                chrootUrl = update.getString(core.is64Bit() ? "chroot64_url" : "chroot32_url");
+                            }
+                            updatedialog(update.getString("name"),update.getString("apk_url"),chrootUrl);}
                         else{
                             updatefix(update.getString("apk_url"));
                         }
@@ -265,6 +273,14 @@ public class Dashboard extends Fragment  {
                     123
             );
         }
+        // Android 13+ needs the notification permission requested at runtime
+        if (Build.VERSION.SDK_INT >= 33 && context.checkSelfPermission(POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    activity,
+                    new String[]{POST_NOTIFICATIONS},
+                    123
+            );
+        }
         return context.checkSelfPermission(WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
     /**
@@ -275,13 +291,13 @@ public class Dashboard extends Fragment  {
      * @param urlchroot32 the url of the 32-bit chroot
      * @param urlchroot64 the url of the 64-bit chroot
      */
-    public void updatedialog(String name, String urlapk, String urlchroot32,String urlchroot64) {
+    public void updatedialog(String name, String urlapk, String urlchroot) {
         new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.new_update)
                 .setMessage(getString(R.string.want_update) + " " + BuildConfig.VERSION_NAME + " " + getString(R.string.doo) + " " + name + getString(R.string.rvregre))
                 .setPositiveButton(R.string.yes, (dialogInterface, i) -> {
                     FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.flContent, new Updater(urlapk,urlchroot32,urlchroot64)).commit();
+                    fragmentManager.beginTransaction().replace(R.id.flContent, new Updater(urlapk,urlchroot)).commit();
                 })
                 .setNegativeButton(R.string.no, (dialogInterface, i) -> dialogInterface.dismiss()).show();
 

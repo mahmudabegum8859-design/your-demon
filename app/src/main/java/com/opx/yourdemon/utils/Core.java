@@ -638,6 +638,28 @@ public class Core {
     public boolean is64Bit() {
         return (Build.SUPPORTED_64_BIT_ABIS != null && Build.SUPPORTED_64_BIT_ABIS.length > 0);
     }
+    /**
+     * Returns the chroot archive file name for the current device architecture.
+     * Supports arm64 (aarch64), armv7 (32-bit ARM), x86_64 and x86 (32-bit x86).
+     */
+    public String chrootName() {
+        String[] abis = Build.SUPPORTED_ABIS;
+        if (abis != null) {
+            for (String abi : abis) {
+                if (abi != null) {
+                    if (abi.contains("arm64") || abi.contains("aarch64")) return "core-aarch64.tar.gz";
+                    if (abi.contains("x86_64") || abi.contains("amd64")) return "core-x86_64.tar.gz";
+                }
+            }
+            for (String abi : abis) {
+                if (abi != null) {
+                    if (abi.contains("armeabi") || abi.contains("arm")) return "core-armv7.tar.gz";
+                    if (abi.contains("x86")) return "core-x86.tar.gz";
+                }
+            }
+        }
+        return "core-aarch64.tar.gz";
+    }
     // Scaling the view by the given factor.
     public void scale(View v, Float x){
         v.animate().scaleY(x);

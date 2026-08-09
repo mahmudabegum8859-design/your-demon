@@ -1,6 +1,7 @@
 package com.opx.yourdemon;
 
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.annotation.SuppressLint;
@@ -14,6 +15,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -463,6 +465,14 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(
                         this,
                         new String[]{WRITE_EXTERNAL_STORAGE},
+                        123
+                );
+            }
+            // Android 13+ needs the notification permission requested at runtime
+            if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{POST_NOTIFICATIONS},
                         123
                 );
             }

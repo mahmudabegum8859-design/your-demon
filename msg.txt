@@ -1,1 +1,1 @@
-Welcome to Your Demon v2.2.7!
+{"title":"Your Demon v2.2.8 is here!","msg":"Multi-architecture update: the app now automatically downloads the correct core for your device — arm64, armv7 (32-bit ARM), x86_64 and x86. Android 13+ notification permission is requested at first launch so update/download notifications appear, and the intro installer no longer points to a dead chroot link. Enjoy!","enabled":false,"buttontext":"","url":""}

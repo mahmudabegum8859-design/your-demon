@@ -51,13 +51,11 @@ public class Updater extends Fragment {
     }
 
     public String urlapk;
-    public String urlchroot32;
-    public String urlchroot64;
+    public String urlchroot;
     public MaterialButton renew;
-    public Updater(String a,String c,String cc){
+    public Updater(String a,String c){
         urlapk  = a;
-        urlchroot32 = c;
-        urlchroot64 = cc;
+        urlchroot = c;
     }
     @SuppressLint("Range")
     @Nullable
@@ -71,12 +69,8 @@ public class Updater extends Fragment {
         core = new Core(context);
          renew = viewroot.findViewById(R.id.welcome);
         renew.setOnClickListener(view -> core.installApplication(context,"/storage/emulated/0/Download/yourdemonupdate.apk"));
-        if(core.is64Bit()){
-        Thread f = new Thread(() -> updater(urlapk,urlchroot64));
-        f.start();}else{
-            Thread f = new Thread(() -> updater(urlapk,urlchroot32));
-            f.start();
-        }
+        Thread f = new Thread(() -> updater(urlapk,urlchroot));
+        f.start();
 
         return viewroot;
 
