@@ -31,7 +31,7 @@ public class CustomPin {
             InputStream stdout = process.getInputStream();
             String cmd = "python3 -u /CORE/PixieWps/pixie.py -i " + wlan + " --iface-down -p " + pin + " -b " + bssid;
             if (c.getBoolean("pixie_off")) {
-                cmd = "python3 -u /CORE/PixieWps/pixie.py -i " + wlan + " -p " + pin + "-b " + bssid;
+                cmd = "python3 -u /CORE/PixieWps/pixie.py -i " + wlan + " -p " + pin + " -b " + bssid;
                 stdin.write(("" + exec + "'" + cmd + "'" + " &&echo PINFINISHED" + '\n').getBytes());
             } else {
                 stdin.write(("svc wifi disable&&sleep 2&&" + exec + "'" + cmd + "'" + " &&echo PINFINISHED&&sleep 2&&svc wifi enable" + '\n').getBytes());

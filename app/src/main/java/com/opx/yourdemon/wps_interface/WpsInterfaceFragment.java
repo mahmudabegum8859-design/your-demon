@@ -54,7 +54,7 @@ public class WpsInterfaceFragment extends Fragment {
             getActivity().runOnUiThread(() -> statusText.setText(core.str("starting_wps")));
             boolean result = false;
             try {
-                String cmd = core.EXECUTE + "reaver -i " + iface + " -b " + bssid + " -p " + pin + " -vv";
+                String cmd = "svc wifi disable&&sleep 2&&" + core.EXECUTE + "'python3 -u /CORE/PixieWps/pixie.py -i " + iface + " --iface-down -p " + pin + " -b " + bssid + "'&&sleep 2&&svc wifi enable";
                 result = CustomCommand.execute(cmd, core);
             } catch (Exception ignored) {}
             boolean finalResult = result;
